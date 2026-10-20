@@ -1,0 +1,19 @@
+Column,Type,Description
+Administrative,Numeric count,Administrative pages visited
+Administrative_Duration,Numeric seconds,Time on administrative pages
+Informational,Numeric count,Informational pages visited
+Informational_Duration,Numeric seconds,Time on informational pages
+ProductRelated,Numeric count,Product-related pages visited
+ProductRelated_Duration,Numeric seconds,Time on product-related pages
+BounceRates,Numeric rate,Bounce-rate metric for visited pages
+ExitRates,Numeric rate,Exit-rate metric for visited pages
+PageValues,Numeric analytics metric,Page-value metric associated with visited pages. Check its calculation time for the intended prediction point.
+SpecialDay,Numeric proximity,Proximity to a special shopping day
+Month,Categorical,Month of the session
+OperatingSystems,Categorical code,Operating-system category
+Browser,Categorical code,Browser category
+Region,Categorical code,Region category
+TrafficType,Categorical code,Traffic-source category
+VisitorType,Categorical,"New, returning or other visitor"
+Weekend,Boolean,Whether the session occurred on a weekend
+Revenue,Boolean target,Whether the session ended with a purchase

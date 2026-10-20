@@ -1,0 +1,94 @@
+{
+  "winner": "MLP",
+  "runner_up": "Ridge",
+  "n_test": 20767,
+  "resampling": "paired circular blocks within each asset\u2013venue series, 60 observations",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "MLP versus Ridge",
+      "other": "Ridge",
+      "advantage": 2.7881466821034085e-06,
+      "ci_low": -2.369319003762979e-05,
+      "ci_high": 3.302633837470464e-05
+    },
+    {
+      "comparison": "MLP versus OLS",
+      "other": "OLS",
+      "advantage": 2.99683168558597e-06,
+      "ci_low": -2.349812439659298e-05,
+      "ci_high": 3.327763830847921e-05
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "error_slices": [
+    {
+      "group": "(-0.001, 0.000207]",
+      "n": 5192,
+      "rmse": 0.0006347663143699537,
+      "mae": 0.0004998343606465563,
+      "bias": 0.0004995552029921808
+    },
+    {
+      "group": "(0.000207, 0.000508]",
+      "n": 5192,
+      "rmse": 0.0005350290009322431,
+      "mae": 0.0003374965976564623,
+      "bias": 0.00031540946386562495
+    },
+    {
+      "group": "(0.000508, 0.00105]",
+      "n": 5191,
+      "rmse": 0.0005703232828959059,
+      "mae": 0.0003163481879873787,
+      "bias": 4.731800737764384e-05
+    },
+    {
+      "group": "(0.00105, 0.0437]",
+      "n": 5192,
+      "rmse": 0.002261426819279145,
+      "mae": 0.0013207723266606653,
+      "bias": -0.001075779097843724
+    }
+  ],
+  "rmse": 0.0012378142700370878,
+  "mae": 0.0006186274232856902,
+  "series_errors": [
+    {
+      "series": "ADA / Binance",
+      "rmse": 0.0005264082321855937,
+      "mae": 0.00041661161177540236,
+      "n": 3500
+    },
+    {
+      "series": "ADA / Coinbase",
+      "rmse": 0.0022549635130372997,
+      "mae": 0.001268647986517722,
+      "n": 3422
+    },
+    {
+      "series": "BTC / Binance",
+      "rmse": 0.0003358841196704724,
+      "mae": 0.000265217580252308,
+      "n": 3500
+    },
+    {
+      "series": "BTC / Coinbase",
+      "rmse": 0.0012375621622325041,
+      "mae": 0.0006277479280292863,
+      "n": 3423
+    },
+    {
+      "series": "ETH / Binance",
+      "rmse": 0.0004972650251373165,
+      "mae": 0.0003458585920370326,
+      "n": 3500
+    },
+    {
+      "series": "ETH / Coinbase",
+      "rmse": 0.0014246882784127802,
+      "mae": 0.0008065557824779183,
+      "n": 3422
+    }
+  ]
+}

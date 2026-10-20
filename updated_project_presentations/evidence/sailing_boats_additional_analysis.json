@@ -1,0 +1,61 @@
+{
+  "winner": "Stacking",
+  "runner_up": "XGBoost",
+  "n_test": 1492,
+  "resampling": "paired row bootstrap",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "Stacking versus XGBoost",
+      "other": "XGBoost",
+      "advantage": 0.002220548462948835,
+      "ci_low": 2.031796225986099e-05,
+      "ci_high": 0.004734702622031453
+    },
+    {
+      "comparison": "Stacking versus OLS",
+      "other": "OLS",
+      "advantage": 0.20424510978738536,
+      "ci_low": 0.1742333616915442,
+      "ci_high": 0.23233296883653673
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "error_slices": [
+    {
+      "group": "(3.4330000000000003, 7.502]",
+      "n": 373,
+      "rmse": 0.36582806475917723,
+      "mae": 0.26359379251607523,
+      "bias": 0.05564589745638216
+    },
+    {
+      "group": "(7.502, 8.408]",
+      "n": 373,
+      "rmse": 0.20066493130199403,
+      "mae": 0.14474727224849906,
+      "bias": -0.02009508252563614
+    },
+    {
+      "group": "(8.408, 9.009]",
+      "n": 373,
+      "rmse": 0.1762642839223665,
+      "mae": 0.13349047161147562,
+      "bias": -0.042599396450329
+    },
+    {
+      "group": "(9.009, 11.435]",
+      "n": 373,
+      "rmse": 0.1848022097004677,
+      "mae": 0.13551827099089753,
+      "bias": -0.032070000592438135
+    }
+  ],
+  "rmse": 0.2446004610158774,
+  "mae": 0.16933745184173685,
+  "physical_errors": {
+    "mae_kg": 873.6501150128117,
+    "median_ape": 0.12118684126976889,
+    "p90_ape": 0.36969484379238204
+  }
+}

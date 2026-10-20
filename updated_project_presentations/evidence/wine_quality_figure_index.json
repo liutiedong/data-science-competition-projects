@@ -1,0 +1,100 @@
+[
+  {
+    "cell_id": "058413dc",
+    "cell_index": 8,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_008_figure_1.png",
+    "sha256": "f748653e4ea41f181ccee9c58b38d72e13bc010e88b6ed708ab9da1a0d0f19f5"
+  },
+  {
+    "cell_id": "e3594128",
+    "cell_index": 15,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_015_figure_1.png",
+    "sha256": "0cb3777e54bc1b1bc16c4c24d4af3b65fa72fb02d2a00a2700e1e45b6f659d46"
+  },
+  {
+    "cell_id": "3d9bb664",
+    "cell_index": 22,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_022_figure_1.png",
+    "sha256": "8caa0b2d4057d73c6c8e10c561e5292d0d030388dae0915e6943bccda2646fe1"
+  },
+  {
+    "cell_id": "12f6e4cf",
+    "cell_index": 31,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_031_figure_1.png",
+    "sha256": "669a345a7f6510a97d31ad2784405b57d5cca30792aba1bdf3ac844d7f0fcbd4"
+  },
+  {
+    "cell_id": "ad8d6757",
+    "cell_index": 37,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_037_figure_1.png",
+    "sha256": "0db8a53c7ae2419482bdc76c6ba7a060810849543596148c50d633e36e2e8f92"
+  },
+  {
+    "cell_id": "664a6845",
+    "cell_index": 43,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_043_figure_1.png",
+    "sha256": "b6928cd2d187eed696a0fc5cd889de899ff489bce06c4ad6ac506441fdc93bf2"
+  },
+  {
+    "cell_id": "adb31f0d",
+    "cell_index": 49,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_049_figure_1.png",
+    "sha256": "abaf8f8f32072ab00bce61d0b86e32ecc5d7ae5b100ce4d81036b1a6ec19d21f"
+  },
+  {
+    "cell_id": "0d4d7a94",
+    "cell_index": 55,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_055_figure_1.png",
+    "sha256": "5f4710ee836c6dcf48c8658076230913196aa80669d86a7976b0fa839c78f70d"
+  },
+  {
+    "cell_id": "8a197887",
+    "cell_index": 61,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_061_figure_1.png",
+    "sha256": "b4f168dc0511db83215ec87f09b9ff430505f519554a94793e8602ecd3c1752c"
+  },
+  {
+    "cell_id": "2d26e3e2",
+    "cell_index": 62,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_062_figure_1.png",
+    "sha256": "20139aa1cd12509d88c1725f58a684e1b1e4ff048c01220d0e6db6df6fd9336b"
+  },
+  {
+    "cell_id": "7d76e260",
+    "cell_index": 63,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_063_figure_1.png",
+    "sha256": "353e0474d5febc12a49ec47ddf9f9e10a7b89e5e46bf032d8bd39a04f3b9118d"
+  },
+  {
+    "cell_id": "e74127a8",
+    "cell_index": 73,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_073_figure_1.png",
+    "sha256": "0f81d93a0bda8ca219564f0ede5af85c8c7b01f0082a475ee55fac17fd84dc19"
+  },
+  {
+    "cell_id": "e20d52f4",
+    "cell_index": 74,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_074_figure_1.png",
+    "sha256": "3bdeac383a6c871b7b89710c8573722a9b35e242905339fcdfcdfae6d5e6b70a"
+  },
+  {
+    "cell_id": "57faadd1",
+    "cell_index": 75,
+    "figure_index": 1,
+    "figure": "figures/notebook/wine_quality/cell_075_figure_1.png",
+    "sha256": "d96079fe48be4a148f000d19bcd166283f0d5c029526bdc727dbcca939b36e4d"
+  }
+]

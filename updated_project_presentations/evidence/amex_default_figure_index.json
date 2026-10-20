@@ -1,0 +1,65 @@
+[
+  {
+    "cell_id": "fda07118",
+    "cell_index": 8,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_008_figure_1.png",
+    "sha256": "6dbdb27329b47a58cb787d35f373d9fa991e90462ad0f685567b18e41a0d1009"
+  },
+  {
+    "cell_id": "4e85a845",
+    "cell_index": 15,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_015_figure_1.png",
+    "sha256": "f489227975c089e8baf94d65db47b72577b7d38428c76e7e938f2ba3edb7b0cf"
+  },
+  {
+    "cell_id": "e16dac82",
+    "cell_index": 28,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_028_figure_1.png",
+    "sha256": "362c0c0f90dbb5398b9b1cb521ff737348b438dc2ee1f6ad1b9f8e277b4cbf74"
+  },
+  {
+    "cell_id": "38815278",
+    "cell_index": 34,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_034_figure_1.png",
+    "sha256": "e24ab29a583faca42aaa32e62ad6971d9cd661a056d0ee1778856bd07c5a6257"
+  },
+  {
+    "cell_id": "bc5cc0f9",
+    "cell_index": 40,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_040_figure_1.png",
+    "sha256": "84f49b5642033fd5a6847dbf602ee3da84048fc8b709c153d0cac47d50fb90f4"
+  },
+  {
+    "cell_id": "1b2076d8",
+    "cell_index": 46,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_046_figure_1.png",
+    "sha256": "c17a7b1eb9055114690191f6231d601a87cc0217b278ec62b2b794b22ae78c29"
+  },
+  {
+    "cell_id": "e5eb8ec3",
+    "cell_index": 52,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_052_figure_1.png",
+    "sha256": "7609a6e9de59fe6aecf8a1ba77fec106e921f090b150f2af8d9380bd7cb0e6ad"
+  },
+  {
+    "cell_id": "d4eb0a33",
+    "cell_index": 58,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_058_figure_1.png",
+    "sha256": "9369e0bd5b4bc1e9def0398ca9fd1384ef2cd178792fec586c038816b9415de1"
+  },
+  {
+    "cell_id": "3fc02d7d",
+    "cell_index": 59,
+    "figure_index": 1,
+    "figure": "figures/notebook/amex_default/cell_059_figure_1.png",
+    "sha256": "e0c34f07b7583e7c8fcfa09f310664e8fab831e96c0ddb46f9343ed46cee3386"
+  }
+]

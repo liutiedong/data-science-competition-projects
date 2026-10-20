@@ -1,0 +1,93 @@
+[
+  {
+    "cell_id": "a5325d5e",
+    "cell_index": 7,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_007_figure_1.png",
+    "sha256": "4b4b3c71203b1f0822294d30e9b4ea415a9958a62ef3cae4c48d0e1f3fb5eb0d"
+  },
+  {
+    "cell_id": "69769fd3",
+    "cell_index": 8,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_008_figure_1.png",
+    "sha256": "86b90bfdbd9ed8fe4856be16c8da425a1464b8d94c7f17d16d8cda1d20ba15ae"
+  },
+  {
+    "cell_id": "8ead2f00",
+    "cell_index": 12,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_012_figure_1.png",
+    "sha256": "9a6194191d367309646ab170df7a26c5b85bfc10ce37bff82deb84927536c92a"
+  },
+  {
+    "cell_id": "55ad4b11",
+    "cell_index": 19,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_019_figure_1.png",
+    "sha256": "73aaf50dbbd2e2de48b3e2aba10b99abff01e51c2bde38438664809d573f5a29"
+  },
+  {
+    "cell_id": "33657b38",
+    "cell_index": 24,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_024_figure_1.png",
+    "sha256": "2bf03cf3283bd0cb95329819267499ac44ca6c2b06d804ce17a000116f852c68"
+  },
+  {
+    "cell_id": "27e50985",
+    "cell_index": 33,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_033_figure_1.png",
+    "sha256": "b8c79e3ce1c608994eaa01c15f3e91856a67b4bd0e263ff61d0389902d30da92"
+  },
+  {
+    "cell_id": "f6556cc8",
+    "cell_index": 39,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_039_figure_1.png",
+    "sha256": "48731514745c5352f4240d3ba7af0a1f628c492bc96af296826b738b5a2c292a"
+  },
+  {
+    "cell_id": "f5ba027a",
+    "cell_index": 45,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_045_figure_1.png",
+    "sha256": "260a40ec315cee71893702506ba7daddeefc6451fa44d3b681915575f73aecda"
+  },
+  {
+    "cell_id": "7f5ac0f3",
+    "cell_index": 51,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_051_figure_1.png",
+    "sha256": "cf3c2dc1b54aa1086fd0f12ff1385c96d75437a691efeaab83015dad33d07014"
+  },
+  {
+    "cell_id": "a3aa57b9",
+    "cell_index": 57,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_057_figure_1.png",
+    "sha256": "7d4cf8c969ad102e27865d9b61552ffb6120e20f0c0a4ff6aad5362af5f4155f"
+  },
+  {
+    "cell_id": "41bbb10a",
+    "cell_index": 63,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_063_figure_1.png",
+    "sha256": "7dcb93138a9d10d111ac09dadbc7b3e296327f77b8e1779a70c9d9ef62d62e4d"
+  },
+  {
+    "cell_id": "053de118",
+    "cell_index": 66,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_066_figure_1.png",
+    "sha256": "d5e8fe343e02f5c0a21df50946ee281faec5f2dc68649ad3ed8c6bfbc7b70db1"
+  },
+  {
+    "cell_id": "be9c00c0",
+    "cell_index": 67,
+    "figure_index": 1,
+    "figure": "figures/notebook/pjm_energy/cell_067_figure_1.png",
+    "sha256": "1bae3683da57774e557dc89c54562db6bccb8df44a65a7ea4eec57bb7e62792f"
+  }
+]

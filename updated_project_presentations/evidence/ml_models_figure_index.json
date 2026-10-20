@@ -1,0 +1,72 @@
+[
+  {
+    "cell_id": "d391a27d",
+    "cell_index": 8,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_008_figure_1.png",
+    "sha256": "a5801a0fe2d6c5cdacdbfc2ff370ff16ce0a2b26417607595664b3636ca9cde8"
+  },
+  {
+    "cell_id": "b8d16811",
+    "cell_index": 16,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_016_figure_1.png",
+    "sha256": "c10ea7ecffe8647d9687d137c27c21ec1d5b94799d9f1544d622de96d41626c2"
+  },
+  {
+    "cell_id": "08603448",
+    "cell_index": 23,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_023_figure_1.png",
+    "sha256": "571d5a4f6cea45e1663463ae42d4317decd3a19fb50563d1d03026a4b6ba7172"
+  },
+  {
+    "cell_id": "05b47cdb",
+    "cell_index": 32,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_032_figure_1.png",
+    "sha256": "21459637d1240e1ef7d3e29ff4125697330cbff61a50a73377823ce25f238197"
+  },
+  {
+    "cell_id": "fdb89a0a",
+    "cell_index": 39,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_039_figure_1.png",
+    "sha256": "f70a31134ef6a65ff600884b05a976e2fb8b40481bdabb9716cf7896428b8192"
+  },
+  {
+    "cell_id": "61c4e466",
+    "cell_index": 45,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_045_figure_1.png",
+    "sha256": "1e6b02f3107a9ac5673932d7dcd80edd60ed34fda8a04a9bd996872ff014f28e"
+  },
+  {
+    "cell_id": "a5b2e8d8",
+    "cell_index": 51,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_051_figure_1.png",
+    "sha256": "0033301d08993c5c73b6b8ff79defcb54d1fa77dcbb3f5d64eceac56c5f17deb"
+  },
+  {
+    "cell_id": "67e62f3c",
+    "cell_index": 57,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_057_figure_1.png",
+    "sha256": "055c82c22e4ddc3e241d6ae24e09c9e319457473a9f94ff34ce62c2a12c1ff81"
+  },
+  {
+    "cell_id": "f7104818",
+    "cell_index": 63,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_063_figure_1.png",
+    "sha256": "12872dda805e7713d388c3e527a4cde61ff2eaca3132008effdf672b34bfbaab"
+  },
+  {
+    "cell_id": "6737e6ce",
+    "cell_index": 64,
+    "figure_index": 1,
+    "figure": "figures/notebook/ml_models/cell_064_figure_1.png",
+    "sha256": "f3de067953615f69092670a941d9a396bfc137f4280cdf30018f1706c1c169f0"
+  }
+]

@@ -1,0 +1,8 @@
+column,role,type,description
+age,predictor,numeric,Age in years
+sex,predictor,categorical,Recorded sex category
+bmi,predictor,numeric,Body mass index in the source data
+children,predictor,integer,Recorded number of children/dependents
+smoker,predictor,categorical,"Recorded smoker status, yes or no"
+region,predictor,categorical,Recorded US region category
+charges,target,continuous,"Recorded individual medical charges billed to insurance, in US dollars"

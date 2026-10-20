@@ -1,0 +1,65 @@
+[
+  {
+    "cell_id": "a4c371ab",
+    "cell_index": 8,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_008_figure_1.png",
+    "sha256": "d567c7338dcafcb12b5686336b0a48ca66f0e2fe1b7eece2b70ca4914c81390c"
+  },
+  {
+    "cell_id": "b7246305",
+    "cell_index": 15,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_015_figure_1.png",
+    "sha256": "69e4c83b8e72db01604655ea60d9adaa31d2f1aa25e865341f4ca306052d7c62"
+  },
+  {
+    "cell_id": "104a6d9c",
+    "cell_index": 29,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_029_figure_1.png",
+    "sha256": "7e9c419db027c319d7644cd020396b3d0fb8910f75db579e9a4dae6d495031a6"
+  },
+  {
+    "cell_id": "3d7404df",
+    "cell_index": 35,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_035_figure_1.png",
+    "sha256": "19f886121b0edc29f08624a04a3824997ecb47ecd4c0042d36c3a4a36617527f"
+  },
+  {
+    "cell_id": "fb14f52c",
+    "cell_index": 41,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_041_figure_1.png",
+    "sha256": "f357071e0e04716f548b888a2188dc73bc0321e130be2da6b80d62bf136eb31a"
+  },
+  {
+    "cell_id": "d42356ca",
+    "cell_index": 47,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_047_figure_1.png",
+    "sha256": "3c5c8591d915e87ff610d31b4a986392390cbc26143aeb2ec5c9e3677aad1b41"
+  },
+  {
+    "cell_id": "9dac3dda",
+    "cell_index": 53,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_053_figure_1.png",
+    "sha256": "78a607c42adabf21e6ec78a451a5cb44e7834c95cd2d0db3728108d97ac5ff69"
+  },
+  {
+    "cell_id": "f95c8d10",
+    "cell_index": 59,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_059_figure_1.png",
+    "sha256": "34f3b39e101e6a69f1c57538d077d91b634fe701ddae496c0a4f75533c7ab133"
+  },
+  {
+    "cell_id": "c2106393",
+    "cell_index": 60,
+    "figure_index": 1,
+    "figure": "figures/notebook/give_me_some_credit/cell_060_figure_1.png",
+    "sha256": "7583bcf8276e2964784b33f1582d25c9b73060ab7dba16dd9d99dfa035d96ff3"
+  }
+]

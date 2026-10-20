@@ -1,0 +1,62 @@
+[
+  {
+    "cell_index": 8,
+    "cell_id": "8f2e7ffe",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 5))\n\ndf[\"Displacement_kg\"].hist(bins=60, ax=axes[0])\naxes[0].set_title(\"Raw Displacement (kg) -- heavily right-skewed\")\naxes[0].set_xlabel(\"Displacement (kg)\")\n\ndf[\"log_displacement\"].hist(bins=60, ax=axes[1], color=\"darkorange\")\naxes[1].set_title(\"log1p(Displacement) -- much closer to symmetric\")\naxes[1].set_xlabel(\"log(1 + Displacement in kg)\")\n\nplt.tight_layout()\nplt.show()\n\nprint(f\"Raw Displacement spans {df['Displacement_kg'].max() / df['Displacement_kg'].min():,.0f}x \"\n      f\"from smallest to largest boat -- exactly the kind of multi-order-of-magnitude \"\n      f\"spread that justifies modeling the log instead of the raw value.\")\n"
+  },
+  {
+    "cell_index": 9,
+    "cell_id": "e7ce1d5a",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(15, 5))\n\ncorr = df[numeric_features + [\"log_displacement\"]].corr(numeric_only=True)\nsns.heatmap(corr, annot=True, fmt=\".2f\", cmap=\"coolwarm\", center=0, ax=axes[0])\naxes[0].set_title(\"Feature correlation matrix (numeric features + log target)\")\n\ndf[\"Hull_Type\"].value_counts().plot(kind=\"barh\", ax=axes[1], color=\"steelblue\")\naxes[1].invert_yaxis()\naxes[1].set_title(\"Hull Type counts (after bucketing rare types as 'Other')\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 16,
+    "cell_id": "6d707cb9",
+    "source": "coef_df = pd.DataFrame({\n    \"feature\": scaled_feature_names,\n    \"coefficient\": lin_reg.coef_\n}).sort_values(\"coefficient\", key=abs, ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=coef_df, x=\"coefficient\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Linear Regression coefficients (top 20 by |coefficient|)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_df\n"
+  },
+  {
+    "cell_index": 23,
+    "cell_id": "1ec74409",
+    "source": "coef_compare = pd.DataFrame({\n    \"feature\": scaled_feature_names,\n    \"LinearRegression\": lin_reg.coef_,\n    \"Ridge\": ridge.coef_,\n    \"Lasso\": lasso.coef_,\n    \"ElasticNet\": elastic.coef_,\n}).set_index(\"feature\")\n\ntop_features = coef_compare[\"LinearRegression\"].abs().sort_values(ascending=False).head(20).index\ncoef_compare.loc[top_features].plot(kind=\"barh\", figsize=(9, 7))\nplt.title(\"Coefficient comparison: OLS vs. Ridge vs. Lasso vs. Elastic Net (top 20 features)\")\nplt.xlabel(\"Coefficient (standardized/encoded features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_compare.loc[top_features]\n"
+  },
+  {
+    "cell_index": 32,
+    "cell_id": "cd1a0c8e",
+    "source": "plt.plot(mlp.loss_curve_)\nplt.title(\"MLP training loss curve\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Loss\")\nplt.show()\n\nprint(f\"Stopped after {len(mlp.loss_curve_)} iterations \"\n      f\"(early_stopping={'triggered' if mlp.n_iter_ < mlp.max_iter else 'not triggered'})\")\n"
+  },
+  {
+    "cell_index": 38,
+    "cell_id": "4ac5e662",
+    "source": "rf_importance = pd.DataFrame({\n    \"feature\": tree_feature_names,\n    \"importance\": rf.feature_importances_\n}).sort_values(\"importance\", ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Random Forest feature importances (top 20)\")\nplt.tight_layout()\nplt.show()\n\nrf_importance\n"
+  },
+  {
+    "cell_index": 44,
+    "cell_id": "7eb91fef",
+    "source": "xgb_importance = pd.DataFrame({\n    \"feature\": tree_feature_names,\n    \"importance\": xgb.feature_importances_\n}).sort_values(\"importance\", ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=xgb_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"XGBoost feature importances (top 20)\")\nplt.tight_layout()\nplt.show()\n\nxgb_importance\n"
+  },
+  {
+    "cell_index": 50,
+    "cell_id": "020061fe",
+    "source": "cat_importance = pd.DataFrame({\n    \"feature\": X_train.columns,\n    \"importance\": cat.get_feature_importance()\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=cat_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"CatBoost feature importances (native categorical handling, no one-hot)\")\nplt.tight_layout()\nplt.show()\n\ncat_importance\n"
+  },
+  {
+    "cell_index": 57,
+    "cell_id": "baca06c9",
+    "source": "lgbm_importance = pd.DataFrame({\n    \"feature\": tree_feature_names,\n    \"importance\": lgbm.feature_importances_\n}).sort_values(\"importance\", ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=lgbm_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"LightGBM feature importances (top 20)\")\nplt.tight_layout()\nplt.show()\n\nlgbm_importance\n"
+  },
+  {
+    "cell_index": 63,
+    "cell_id": "69fc2389",
+    "source": "fig, axes = plt.subplots(1, 3, figsize=(16, 5))\n\nfor ax, metric in zip(axes, [\"RMSE\", \"MAE\", \"R2\"]):\n    order = results_df.sort_values(metric, ascending=(metric != \"R2\")).index\n    sns.barplot(x=results_df.loc[order, metric], y=order, palette=\"viridis\", ax=ax)\n    ax.set_title(f\"{metric} (log-displacement units)\")\n    ax.set_ylabel(\"\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 64,
+    "cell_id": "c1f347c4",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 7))\n\npreds = {\n    \"LinearRegression\": y_pred_lr,\n    \"Ridge\": y_pred_ridge,\n    \"Lasso\": y_pred_lasso,\n    \"ElasticNet\": y_pred_elastic,\n    \"MLP\": y_pred_mlp,\n    \"KNN\": y_pred_knn,\n    \"RandomForest\": y_pred_rf,\n    \"XGBoost\": y_pred_xgb,\n    \"CatBoost\": y_pred_cat,\n    \"LightGBM\": y_pred_lgbm,\n}\n\nax = axes[0]\nfor name, p in preds.items():\n    ax.scatter(y_test, p, alpha=0.2, s=10, label=name)\nlims = [y_test.min(), y_test.max()]\nax.plot(lims, lims, \"k--\", linewidth=1, label=\"perfect prediction\")\nax.set_xlabel(\"Actual log(1 + Displacement)\")\nax.set_ylabel(\"Predicted log(1 + Displacement)\")\nax.set_title(\"Log-space: predicted vs. actual\")\nax.legend(markerscale=2, fontsize=7)\n\nax = axes[1]\ny_test_kg = np.expm1(y_test)\nfor name, p in preds.items():\n    ax.scatter(y_test_kg, np.expm1(p), alpha=0.2, s=10, label=name)\nlims_kg = [y_test_kg.min(), y_test_kg.max()]\nax.plot(lims_kg, lims_kg, \"k--\", linewidth=1, label=\"perfect prediction\")\nax.set_xscale(\"log\")\nax.set_yscale(\"log\")\nax.set_xlabel(\"Actual Displacement (kg, log scale)\")\nax.set_ylabel(\"Predicted Displacement (kg, log scale)\")\nax.set_title(\"Back-transformed to kg (log-log axes)\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 65,
+    "cell_id": "dca36775",
+    "source": "preds = {\n    \"LinearRegression\": y_pred_lr,\n    \"Ridge\": y_pred_ridge,\n    \"Lasso\": y_pred_lasso,\n    \"ElasticNet\": y_pred_elastic,\n    \"MLP\": y_pred_mlp,\n    \"KNN\": y_pred_knn,\n    \"RandomForest\": y_pred_rf,\n    \"XGBoost\": y_pred_xgb,\n    \"CatBoost\": y_pred_cat,\n    \"LightGBM\": y_pred_lgbm,\n}\n\nfig, axes = plt.subplots(2, 5, figsize=(18, 8))\ny_test_kg = np.expm1(y_test)\nlims_kg = [y_test_kg.min(), y_test_kg.max()]\n\nfor ax, (name, p) in zip(axes.ravel(), preds.items()):\n    ax.scatter(y_test_kg, np.expm1(p), alpha=0.25, s=10)\n    ax.plot(lims_kg, lims_kg, \"k--\", linewidth=1)\n    ax.set_xscale(\"log\")\n    ax.set_yscale(\"log\")\n    ax.set_title(name)\n    ax.set_xlabel(\"Actual kg\")\n    ax.set_ylabel(\"Predicted kg\")\n\nplt.tight_layout()\nplt.show()\n"
+  }
+]

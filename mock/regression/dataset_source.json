@@ -1,0 +1,18 @@
+{
+  "dataset": "Medical Cost Personal Datasets",
+  "task": "regression",
+  "kaggle_url": "https://www.kaggle.com/datasets/mirichoi0218/insurance",
+  "download_url": "https://www.kaggle.com/api/v1/datasets/download/mirichoi0218/insurance",
+  "downloaded_utc": "2026-10-19T14:11:50.800124+00:00",
+  "archive_member": "insurance.csv",
+  "csv_sha256": "388eff679557d08ac19f463d025de5e0b4adc482537c8456d19934d78621fd47",
+  "csv_bytes": 55628,
+  "original_reference": "Machine Learning with R by Brett Lantz",
+  "original_reference_url": "https://github.com/stedy/Machine-Learning-with-R-datasets/blob/master/insurance.csv",
+  "license": "Database: Open Database, Contents: Database Contents",
+  "license_details": {
+    "database": "Open Database License (ODbL)",
+    "contents": "Database Contents License (DbCL)",
+    "source": "Kaggle dataset metadata licenseName"
+  }
+}

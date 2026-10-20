@@ -1,0 +1,87 @@
+{
+  "winner": "RandomForest",
+  "runner_up": "Stacking",
+  "n_test": 918,
+  "resampling": "paired stratified row bootstrap",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "RandomForest versus Stacking",
+      "other": "Stacking",
+      "advantage": 0.0001438692516241291,
+      "ci_low": -0.0010201129213770117,
+      "ci_high": 0.0012596552253311161
+    },
+    {
+      "comparison": "RandomForest versus Reference logistic",
+      "other": "Reference logistic",
+      "advantage": 0.02065003324978254,
+      "ci_low": 0.007870127628011555,
+      "ci_high": 0.0378324178986136
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "average_precision": 0.8742412098981159,
+  "prevalence": 0.24618736383442266,
+  "brier_score": 0.07123497173186734,
+  "review_capacity": [
+    {
+      "review_share": 0.010893246187363835,
+      "n_reviewed": 10,
+      "positives": 9,
+      "precision": 0.9,
+      "recall": 0.03982300884955752,
+      "lift": 3.6557522123893804
+    },
+    {
+      "review_share": 0.05010893246187364,
+      "n_reviewed": 46,
+      "positives": 44,
+      "precision": 0.9565217391304348,
+      "recall": 0.19469026548672566,
+      "lift": 3.8853405155829166
+    },
+    {
+      "review_share": 0.10021786492374728,
+      "n_reviewed": 92,
+      "positives": 84,
+      "precision": 0.9130434782608695,
+      "recall": 0.37168141592920356,
+      "lift": 3.7087341285109656
+    },
+    {
+      "review_share": 0.20043572984749455,
+      "n_reviewed": 184,
+      "positives": 160,
+      "precision": 0.8695652173913043,
+      "recall": 0.7079646017699115,
+      "lift": 3.5321277414390146
+    }
+  ],
+  "calibration_deciles": {
+    "predicted": [
+      0.0014704106280193233,
+      0.0075969634230503786,
+      0.01867548021624109,
+      0.03847380661666377,
+      0.07439557453416148,
+      0.13957310423071292,
+      0.28015481344052773,
+      0.47073659995399136,
+      0.6619986524144134,
+      0.8466190907522428
+    ],
+    "observed": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.021739130434782608,
+      0.043478260869565216,
+      0.16483516483516483,
+      0.4891304347826087,
+      0.8260869565217391,
+      0.9130434782608695
+    ]
+  }
+}

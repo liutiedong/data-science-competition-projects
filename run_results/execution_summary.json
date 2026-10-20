@@ -1,0 +1,102 @@
+[
+  {
+    "notebook": "wine_quality_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 1279,
+    "test_rows": 320,
+    "executed_code_cells": 48,
+    "figures": 14,
+    "stderr_blocks": 12,
+    "seconds": 32.83
+  },
+  {
+    "notebook": "amex_default_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 3671,
+    "test_rows": 918,
+    "executed_code_cells": 39,
+    "figures": 9,
+    "stderr_blocks": 13,
+    "seconds": 70.29
+  },
+  {
+    "notebook": "ml_models_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 16512,
+    "test_rows": 4128,
+    "executed_code_cells": 40,
+    "figures": 10,
+    "stderr_blocks": 8,
+    "seconds": 53.59
+  },
+  {
+    "notebook": "sailing_boats_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 5966,
+    "test_rows": 1492,
+    "executed_code_cells": 42,
+    "figures": 12,
+    "stderr_blocks": 12,
+    "seconds": 28.07
+  },
+  {
+    "notebook": "open_power_systems_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 3288,
+    "test_rows": 730,
+    "executed_code_cells": 51,
+    "figures": 15,
+    "stderr_blocks": 8,
+    "seconds": 26.58
+  },
+  {
+    "notebook": "give_me_some_credit_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 119999,
+    "test_rows": 30000,
+    "executed_code_cells": 39,
+    "figures": 9,
+    "stderr_blocks": 8,
+    "seconds": 140.14
+  },
+  {
+    "notebook": "crypto_microstructure_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 83053,
+    "test_rows": 20767,
+    "executed_code_cells": 42,
+    "figures": 12,
+    "stderr_blocks": 14,
+    "seconds": 334.85
+  },
+  {
+    "notebook": "pjm_energy_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 136464,
+    "test_rows": 8760,
+    "executed_code_cells": 44,
+    "figures": 13,
+    "stderr_blocks": 8,
+    "seconds": 956.65
+  },
+  {
+    "notebook": "home_credit_tutorial.ipynb",
+    "status": "passed",
+    "training_rows": 246008,
+    "test_rows": 61503,
+    "executed_code_cells": 39,
+    "figures": 9,
+    "stderr_blocks": 12,
+    "seconds": 1178.76
+  },
+  {
+    "notebook": "mock/online_shoppers_solution.ipynb",
+    "status": "passed",
+    "training_rows": 7398,
+    "test_rows": 2466,
+    "executed_code_cells": 26,
+    "figures": 18,
+    "stderr_blocks": 0,
+    "seconds": 42.61
+  }
+]

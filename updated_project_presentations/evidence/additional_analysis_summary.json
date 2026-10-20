@@ -1,0 +1,768 @@
+{
+  "ml_models": {
+    "winner": "LightGBM",
+    "runner_up": "Stacking",
+    "n_test": 4128,
+    "resampling": "paired row bootstrap",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "LightGBM versus Stacking",
+        "other": "Stacking",
+        "advantage": 0.0017136471709647827,
+        "ci_low": -0.0014348846957895566,
+        "ci_high": 0.004762718439082734
+      },
+      {
+        "comparison": "LightGBM versus OLS",
+        "other": "OLS",
+        "advantage": 0.3062914198568082,
+        "ci_low": 0.27564976928646623,
+        "ci_high": 0.34602851468750845
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "error_slices": [
+      {
+        "group": "(0.149, 1.193]",
+        "n": 1032,
+        "rmse": 0.31100331643661794,
+        "mae": 0.2002352031441408,
+        "bias": 0.15043898868267655
+      },
+      {
+        "group": "(1.193, 1.786]",
+        "n": 1032,
+        "rmse": 0.30953414572065613,
+        "mae": 0.21498835863549812,
+        "bias": 0.08484603340493778
+      },
+      {
+        "group": "(1.786, 2.63]",
+        "n": 1032,
+        "rmse": 0.3662916324986787,
+        "mae": 0.26139402922109245,
+        "bias": 0.03280525068038806
+      },
+      {
+        "group": "(2.63, 5.0]",
+        "n": 1032,
+        "rmse": 0.6672321010549099,
+        "mae": 0.47675836964536084,
+        "bias": -0.24512952342952632
+      }
+    ],
+    "rmse": 0.43928996315596835,
+    "mae": 0.2883439901615231,
+    "capped_targets": {
+      "n": 184,
+      "mae_usd": 62004.585754020314,
+      "bias_usd": -55609.6827242316
+    }
+  },
+  "wine_quality": {
+    "winner": "Stacking",
+    "runner_up": "RandomForest",
+    "n_test": 320,
+    "resampling": "paired row bootstrap",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "Stacking versus RandomForest",
+        "other": "RandomForest",
+        "advantage": 0.0025747180588177043,
+        "ci_low": -0.006052673595425295,
+        "ci_high": 0.0117741256557128
+      },
+      {
+        "comparison": "Stacking versus OLS",
+        "other": "OLS",
+        "advantage": 0.06952853416013749,
+        "ci_low": 0.034273156825030474,
+        "ci_high": 0.1081055561664954
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "error_slices": [
+      {
+        "group": "(2.999, 5.0]",
+        "n": 141,
+        "rmse": 0.5737609308737056,
+        "mae": 0.4154510522973062,
+        "bias": 0.3955874847094629
+      },
+      {
+        "group": "(5.0, 6.0]",
+        "n": 132,
+        "rmse": 0.4338728830305757,
+        "mae": 0.35669712152377825,
+        "bias": -0.20170889450746815
+      },
+      {
+        "group": "(6.0, 8.0]",
+        "n": 47,
+        "rmse": 0.7621231278336672,
+        "mae": 0.6684033242670228,
+        "bias": -0.6577761031442941
+      }
+    ],
+    "rmse": 0.5549913966378784,
+    "mae": 0.4283674207987781
+  },
+  "sailing_boats": {
+    "winner": "Stacking",
+    "runner_up": "XGBoost",
+    "n_test": 1492,
+    "resampling": "paired row bootstrap",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "Stacking versus XGBoost",
+        "other": "XGBoost",
+        "advantage": 0.002220548462948835,
+        "ci_low": 2.031796225986099e-05,
+        "ci_high": 0.004734702622031453
+      },
+      {
+        "comparison": "Stacking versus OLS",
+        "other": "OLS",
+        "advantage": 0.20424510978738536,
+        "ci_low": 0.1742333616915442,
+        "ci_high": 0.23233296883653673
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "error_slices": [
+      {
+        "group": "(3.4330000000000003, 7.502]",
+        "n": 373,
+        "rmse": 0.36582806475917723,
+        "mae": 0.26359379251607523,
+        "bias": 0.05564589745638216
+      },
+      {
+        "group": "(7.502, 8.408]",
+        "n": 373,
+        "rmse": 0.20066493130199403,
+        "mae": 0.14474727224849906,
+        "bias": -0.02009508252563614
+      },
+      {
+        "group": "(8.408, 9.009]",
+        "n": 373,
+        "rmse": 0.1762642839223665,
+        "mae": 0.13349047161147562,
+        "bias": -0.042599396450329
+      },
+      {
+        "group": "(9.009, 11.435]",
+        "n": 373,
+        "rmse": 0.1848022097004677,
+        "mae": 0.13551827099089753,
+        "bias": -0.032070000592438135
+      }
+    ],
+    "rmse": 0.2446004610158774,
+    "mae": 0.16933745184173685,
+    "physical_errors": {
+      "mae_kg": 873.6501150128117,
+      "median_ape": 0.12118684126976889,
+      "p90_ape": 0.36969484379238204
+    }
+  },
+  "crypto_microstructure": {
+    "winner": "MLP",
+    "runner_up": "Ridge",
+    "n_test": 20767,
+    "resampling": "paired circular blocks within each asset\u2013venue series, 60 observations",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "MLP versus Ridge",
+        "other": "Ridge",
+        "advantage": 2.7881466821034085e-06,
+        "ci_low": -2.369319003762979e-05,
+        "ci_high": 3.302633837470464e-05
+      },
+      {
+        "comparison": "MLP versus OLS",
+        "other": "OLS",
+        "advantage": 2.99683168558597e-06,
+        "ci_low": -2.349812439659298e-05,
+        "ci_high": 3.327763830847921e-05
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "error_slices": [
+      {
+        "group": "(-0.001, 0.000207]",
+        "n": 5192,
+        "rmse": 0.0006347663143699537,
+        "mae": 0.0004998343606465563,
+        "bias": 0.0004995552029921808
+      },
+      {
+        "group": "(0.000207, 0.000508]",
+        "n": 5192,
+        "rmse": 0.0005350290009322431,
+        "mae": 0.0003374965976564623,
+        "bias": 0.00031540946386562495
+      },
+      {
+        "group": "(0.000508, 0.00105]",
+        "n": 5191,
+        "rmse": 0.0005703232828959059,
+        "mae": 0.0003163481879873787,
+        "bias": 4.731800737764384e-05
+      },
+      {
+        "group": "(0.00105, 0.0437]",
+        "n": 5192,
+        "rmse": 0.002261426819279145,
+        "mae": 0.0013207723266606653,
+        "bias": -0.001075779097843724
+      }
+    ],
+    "rmse": 0.0012378142700370878,
+    "mae": 0.0006186274232856902,
+    "series_errors": [
+      {
+        "series": "ADA / Binance",
+        "rmse": 0.0005264082321855937,
+        "mae": 0.00041661161177540236,
+        "n": 3500
+      },
+      {
+        "series": "ADA / Coinbase",
+        "rmse": 0.0022549635130372997,
+        "mae": 0.001268647986517722,
+        "n": 3422
+      },
+      {
+        "series": "BTC / Binance",
+        "rmse": 0.0003358841196704724,
+        "mae": 0.000265217580252308,
+        "n": 3500
+      },
+      {
+        "series": "BTC / Coinbase",
+        "rmse": 0.0012375621622325041,
+        "mae": 0.0006277479280292863,
+        "n": 3423
+      },
+      {
+        "series": "ETH / Binance",
+        "rmse": 0.0004972650251373165,
+        "mae": 0.0003458585920370326,
+        "n": 3500
+      },
+      {
+        "series": "ETH / Coinbase",
+        "rmse": 0.0014246882784127802,
+        "mae": 0.0008065557824779183,
+        "n": 3422
+      }
+    ]
+  },
+  "pjm_energy": {
+    "winner": "SARIMA",
+    "runner_up": "Stacking",
+    "n_test": 8760,
+    "resampling": "paired circular block bootstrap, 168 hours",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "SARIMA versus Stacking",
+        "other": "Stacking",
+        "advantage": 127.78155909913727,
+        "ci_low": 107.9991436708712,
+        "ci_high": 149.2837980845288
+      },
+      {
+        "comparison": "SARIMA versus OLS",
+        "other": "OLS",
+        "advantage": 941.73882113957,
+        "ci_low": 871.341767296107,
+        "ci_high": 1016.0332964923774
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "error_slices": [
+      {
+        "group": "(19366.999, 27004.0]",
+        "n": 2191,
+        "rmse": 264.4355955978009,
+        "mae": 181.22539736728947,
+        "bias": -9.897083740349112
+      },
+      {
+        "group": "(27004.0, 30398.0]",
+        "n": 2189,
+        "rmse": 273.0904535841078,
+        "mae": 196.87105223076043,
+        "bias": -7.651778970540753
+      },
+      {
+        "group": "(30398.0, 34545.75]",
+        "n": 2190,
+        "rmse": 293.779344386564,
+        "mae": 216.37425759766606,
+        "bias": -8.743182173647032
+      },
+      {
+        "group": "(34545.75, 56609.0]",
+        "n": 2190,
+        "rmse": 314.83640111467315,
+        "mae": 237.53307515173307,
+        "bias": 25.829386806441704
+      }
+    ],
+    "rmse": 287.1979798046258,
+    "mae": 207.99915955320202,
+    "calendar_error": [
+      {
+        "period": 0,
+        "rmse": 151.47144686699662
+      },
+      {
+        "period": 1,
+        "rmse": 164.8022359896426
+      },
+      {
+        "period": 2,
+        "rmse": 140.93814942979213
+      },
+      {
+        "period": 3,
+        "rmse": 117.37526757019452
+      },
+      {
+        "period": 4,
+        "rmse": 112.53222585101247
+      },
+      {
+        "period": 5,
+        "rmse": 208.14782578029767
+      },
+      {
+        "period": 6,
+        "rmse": 421.0640328927903
+      },
+      {
+        "period": 7,
+        "rmse": 488.5193690135993
+      },
+      {
+        "period": 8,
+        "rmse": 436.9254468626098
+      },
+      {
+        "period": 9,
+        "rmse": 440.4707625807851
+      },
+      {
+        "period": 10,
+        "rmse": 294.56974617762717
+      },
+      {
+        "period": 11,
+        "rmse": 239.6659397963818
+      },
+      {
+        "period": 12,
+        "rmse": 251.4765890259007
+      },
+      {
+        "period": 13,
+        "rmse": 222.02661604029257
+      },
+      {
+        "period": 14,
+        "rmse": 238.48321225154388
+      },
+      {
+        "period": 15,
+        "rmse": 245.22691566357247
+      },
+      {
+        "period": 16,
+        "rmse": 241.8534306686548
+      },
+      {
+        "period": 17,
+        "rmse": 223.9848366381279
+      },
+      {
+        "period": 18,
+        "rmse": 289.72092238665766
+      },
+      {
+        "period": 19,
+        "rmse": 347.01447786892317
+      },
+      {
+        "period": 20,
+        "rmse": 344.05155788750983
+      },
+      {
+        "period": 21,
+        "rmse": 290.8981295192009
+      },
+      {
+        "period": 22,
+        "rmse": 260.64103959677425
+      },
+      {
+        "period": 23,
+        "rmse": 285.101027511145
+      }
+    ]
+  },
+  "open_power_systems": {
+    "winner": "Stacking",
+    "runner_up": "XGBoost (tuned)",
+    "n_test": 730,
+    "resampling": "paired circular block bootstrap, 7 days",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "Stacking versus XGBoost (tuned)",
+        "other": "XGBoost (tuned)",
+        "advantage": 0.43324708455732974,
+        "ci_low": -1.0277698128804302,
+        "ci_high": 1.8252383107579178
+      },
+      {
+        "comparison": "Stacking versus OLS",
+        "other": "OLS",
+        "advantage": 11.214981885882231,
+        "ci_low": 7.180868699890031,
+        "ci_high": 15.495805571573399
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "error_slices": [
+      {
+        "group": "(1016.023, 1272.785]",
+        "n": 183,
+        "rmse": 72.67749741567671,
+        "mae": 33.97762873669213,
+        "bias": 19.999782588291467
+      },
+      {
+        "group": "(1272.785, 1407.601]",
+        "n": 182,
+        "rmse": 32.66637405286829,
+        "mae": 21.58923967103387,
+        "bias": -5.450139818855988
+      },
+      {
+        "group": "(1407.601, 1498.972]",
+        "n": 182,
+        "rmse": 26.149853173374954,
+        "mae": 17.53833303630561,
+        "bias": -10.565754542794508
+      },
+      {
+        "group": "(1498.972, 1682.002]",
+        "n": 183,
+        "rmse": 25.736423190258115,
+        "mae": 19.303964045770556,
+        "bias": -9.203104993239245
+      }
+    ],
+    "rmse": 43.89412801672414,
+    "mae": 23.111985906748576,
+    "calendar_error": [
+      {
+        "period": 0,
+        "rmse": 75.6690707813293
+      },
+      {
+        "period": 1,
+        "rmse": 42.07829570934421
+      },
+      {
+        "period": 2,
+        "rmse": 25.021788741330024
+      },
+      {
+        "period": 3,
+        "rmse": 50.681584094249374
+      },
+      {
+        "period": 4,
+        "rmse": 41.427865133377146
+      },
+      {
+        "period": 5,
+        "rmse": 24.2385473914052
+      },
+      {
+        "period": 6,
+        "rmse": 22.768401423755037
+      }
+    ]
+  },
+  "give_me_some_credit": {
+    "winner": "CatBoost (tuned)",
+    "runner_up": "XGBoost (tuned)",
+    "n_test": 30000,
+    "resampling": "paired stratified row bootstrap",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "CatBoost (tuned) versus XGBoost (tuned)",
+        "other": "XGBoost (tuned)",
+        "advantage": 0.0006689117534793843,
+        "ci_low": -0.0005937522687297969,
+        "ci_high": 0.0020104211252542107
+      },
+      {
+        "comparison": "CatBoost (tuned) versus Reference logistic",
+        "other": "Reference logistic",
+        "advantage": 0.0551552802223767,
+        "ci_low": 0.04758234392586138,
+        "ci_high": 0.06246994230800919
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "average_precision": 0.39705290410611777,
+    "prevalence": 0.06683333333333333,
+    "brier_score": 0.04907005301996205,
+    "review_capacity": [
+      {
+        "review_share": 0.01,
+        "n_reviewed": 300,
+        "positives": 195,
+        "precision": 0.65,
+        "recall": 0.09725685785536159,
+        "lift": 9.725685785536161
+      },
+      {
+        "review_share": 0.05,
+        "n_reviewed": 1500,
+        "positives": 715,
+        "precision": 0.4766666666666667,
+        "recall": 0.3566084788029925,
+        "lift": 7.132169576059852
+      },
+      {
+        "review_share": 0.1,
+        "n_reviewed": 3000,
+        "positives": 1116,
+        "precision": 0.372,
+        "recall": 0.5566084788029925,
+        "lift": 5.566084788029926
+      },
+      {
+        "review_share": 0.2,
+        "n_reviewed": 6000,
+        "positives": 1473,
+        "precision": 0.2455,
+        "recall": 0.7346633416458853,
+        "lift": 3.6733167082294265
+      }
+    ],
+    "calibration_deciles": {
+      "predicted": [
+        0.005146886703221672,
+        0.0076725125686758384,
+        0.010165476535635416,
+        0.013132387940161808,
+        0.01753579275797895,
+        0.025243188888982887,
+        0.03920330819435776,
+        0.06359456222712603,
+        0.1173524918558089,
+        0.36901440049544393
+      ],
+      "observed": [
+        0.004666666666666667,
+        0.003,
+        0.008,
+        0.013333333333333334,
+        0.017,
+        0.021666666666666667,
+        0.041,
+        0.06866666666666667,
+        0.119,
+        0.372
+      ]
+    }
+  },
+  "home_credit": {
+    "winner": "XGBoost",
+    "runner_up": "LightGBM (tuned)",
+    "n_test": 61503,
+    "resampling": "paired stratified row bootstrap",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "XGBoost versus LightGBM (tuned)",
+        "other": "LightGBM (tuned)",
+        "advantage": 0.0017492873546856025,
+        "ci_low": 0.00029312994563071847,
+        "ci_high": 0.0032169645226443025
+      },
+      {
+        "comparison": "XGBoost versus Reference logistic",
+        "other": "Reference logistic",
+        "advantage": 0.012006499420739059,
+        "ci_low": 0.009128066581746605,
+        "ci_high": 0.014983527997835028
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "average_precision": 0.24644110534670755,
+    "prevalence": 0.08072776937710356,
+    "brier_score": 0.0677117095620488,
+    "review_capacity": [
+      {
+        "review_share": 0.010015771588377803,
+        "n_reviewed": 616,
+        "positives": 301,
+        "precision": 0.48863636363636365,
+        "recall": 0.060624370594159115,
+        "lift": 6.0528906893710515
+      },
+      {
+        "review_share": 0.0500138204640424,
+        "n_reviewed": 3076,
+        "positives": 1043,
+        "precision": 0.33907672301690506,
+        "recall": 0.21007049345417925,
+        "lift": 4.200248881310919
+      },
+      {
+        "review_share": 0.10001138155862316,
+        "n_reviewed": 6151,
+        "positives": 1676,
+        "precision": 0.2724760201593237,
+        "recall": 0.33756294058408864,
+        "lift": 3.375245250324045
+      },
+      {
+        "review_share": 0.20000650374778467,
+        "n_reviewed": 12301,
+        "positives": 2600,
+        "precision": 0.2113649296805138,
+        "recall": 0.5236656596173213,
+        "lift": 2.6182431561209745
+      }
+    ],
+    "calibration_deciles": {
+      "predicted": [
+        0.012818564176165025,
+        0.02162850439366771,
+        0.02925198952114679,
+        0.0375687944071322,
+        0.04753857245025277,
+        0.059992231749664476,
+        0.07710752762430083,
+        0.1018894750085788,
+        0.14486096984850683,
+        0.2712430383927104
+      ],
+      "observed": [
+        0.013006015282067957,
+        0.0208130081300813,
+        0.026829268292682926,
+        0.03447154471544715,
+        0.04682165501544464,
+        0.060650406504065044,
+        0.08130081300813008,
+        0.10065040650406504,
+        0.15024390243902438,
+        0.2724760201593237
+      ]
+    }
+  },
+  "amex_default": {
+    "winner": "RandomForest",
+    "runner_up": "Stacking",
+    "n_test": 918,
+    "resampling": "paired stratified row bootstrap",
+    "n_resamples": 1000,
+    "comparisons": [
+      {
+        "comparison": "RandomForest versus Stacking",
+        "other": "Stacking",
+        "advantage": 0.0001438692516241291,
+        "ci_low": -0.0010201129213770117,
+        "ci_high": 0.0012596552253311161
+      },
+      {
+        "comparison": "RandomForest versus Reference logistic",
+        "other": "Reference logistic",
+        "advantage": 0.02065003324978254,
+        "ci_low": 0.007870127628011555,
+        "ci_high": 0.0378324178986136
+      }
+    ],
+    "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+    "average_precision": 0.8742412098981159,
+    "prevalence": 0.24618736383442266,
+    "brier_score": 0.07123497173186734,
+    "review_capacity": [
+      {
+        "review_share": 0.010893246187363835,
+        "n_reviewed": 10,
+        "positives": 9,
+        "precision": 0.9,
+        "recall": 0.03982300884955752,
+        "lift": 3.6557522123893804
+      },
+      {
+        "review_share": 0.05010893246187364,
+        "n_reviewed": 46,
+        "positives": 44,
+        "precision": 0.9565217391304348,
+        "recall": 0.19469026548672566,
+        "lift": 3.8853405155829166
+      },
+      {
+        "review_share": 0.10021786492374728,
+        "n_reviewed": 92,
+        "positives": 84,
+        "precision": 0.9130434782608695,
+        "recall": 0.37168141592920356,
+        "lift": 3.7087341285109656
+      },
+      {
+        "review_share": 0.20043572984749455,
+        "n_reviewed": 184,
+        "positives": 160,
+        "precision": 0.8695652173913043,
+        "recall": 0.7079646017699115,
+        "lift": 3.5321277414390146
+      }
+    ],
+    "calibration_deciles": {
+      "predicted": [
+        0.0014704106280193233,
+        0.0075969634230503786,
+        0.01867548021624109,
+        0.03847380661666377,
+        0.07439557453416148,
+        0.13957310423071292,
+        0.28015481344052773,
+        0.47073659995399136,
+        0.6619986524144134,
+        0.8466190907522428
+      ],
+      "observed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.021739130434782608,
+        0.043478260869565216,
+        0.16483516483516483,
+        0.4891304347826087,
+        0.8260869565217391,
+        0.9130434782608695
+      ]
+    }
+  }
+}

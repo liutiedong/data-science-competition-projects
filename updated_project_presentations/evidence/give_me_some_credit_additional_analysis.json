@@ -1,0 +1,87 @@
+{
+  "winner": "CatBoost (tuned)",
+  "runner_up": "XGBoost (tuned)",
+  "n_test": 30000,
+  "resampling": "paired stratified row bootstrap",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "CatBoost (tuned) versus XGBoost (tuned)",
+      "other": "XGBoost (tuned)",
+      "advantage": 0.0006689117534793843,
+      "ci_low": -0.0005937522687297969,
+      "ci_high": 0.0020104211252542107
+    },
+    {
+      "comparison": "CatBoost (tuned) versus Reference logistic",
+      "other": "Reference logistic",
+      "advantage": 0.0551552802223767,
+      "ci_low": 0.04758234392586138,
+      "ci_high": 0.06246994230800919
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "average_precision": 0.39705290410611777,
+  "prevalence": 0.06683333333333333,
+  "brier_score": 0.04907005301996205,
+  "review_capacity": [
+    {
+      "review_share": 0.01,
+      "n_reviewed": 300,
+      "positives": 195,
+      "precision": 0.65,
+      "recall": 0.09725685785536159,
+      "lift": 9.725685785536161
+    },
+    {
+      "review_share": 0.05,
+      "n_reviewed": 1500,
+      "positives": 715,
+      "precision": 0.4766666666666667,
+      "recall": 0.3566084788029925,
+      "lift": 7.132169576059852
+    },
+    {
+      "review_share": 0.1,
+      "n_reviewed": 3000,
+      "positives": 1116,
+      "precision": 0.372,
+      "recall": 0.5566084788029925,
+      "lift": 5.566084788029926
+    },
+    {
+      "review_share": 0.2,
+      "n_reviewed": 6000,
+      "positives": 1473,
+      "precision": 0.2455,
+      "recall": 0.7346633416458853,
+      "lift": 3.6733167082294265
+    }
+  ],
+  "calibration_deciles": {
+    "predicted": [
+      0.005146886703221672,
+      0.0076725125686758384,
+      0.010165476535635416,
+      0.013132387940161808,
+      0.01753579275797895,
+      0.025243188888982887,
+      0.03920330819435776,
+      0.06359456222712603,
+      0.1173524918558089,
+      0.36901440049544393
+    ],
+    "observed": [
+      0.004666666666666667,
+      0.003,
+      0.008,
+      0.013333333333333334,
+      0.017,
+      0.021666666666666667,
+      0.041,
+      0.06866666666666667,
+      0.119,
+      0.372
+    ]
+  }
+}

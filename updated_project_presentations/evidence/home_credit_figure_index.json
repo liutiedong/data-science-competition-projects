@@ -1,0 +1,65 @@
+[
+  {
+    "cell_id": "b027d54e",
+    "cell_index": 8,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_008_figure_1.png",
+    "sha256": "809358d3da842dc0ae75d2a31c3b9d0e1d4679ba894a4fea992b87712bf1e25e"
+  },
+  {
+    "cell_id": "4e19cadd",
+    "cell_index": 15,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_015_figure_1.png",
+    "sha256": "e87402d3a395a87c6a0814ba1999ec6afa8a7e5f35f8c8f3b2318d383b91ff45"
+  },
+  {
+    "cell_id": "021f82a7",
+    "cell_index": 28,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_028_figure_1.png",
+    "sha256": "c2cec6de89658913f175c4fdd77fce264ac23f60e677b0e95ec18f19738e361c"
+  },
+  {
+    "cell_id": "4939b918",
+    "cell_index": 34,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_034_figure_1.png",
+    "sha256": "515c56537b78a91dc432991c3579f8dcb0211ff4f3eaedbf0db5a5519e34e5da"
+  },
+  {
+    "cell_id": "d6eb51ba",
+    "cell_index": 40,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_040_figure_1.png",
+    "sha256": "f5cef7c74270db41705a0999b13d9fed87b5bf5a40ee68727adec0db7be3cba0"
+  },
+  {
+    "cell_id": "b13cf0b4",
+    "cell_index": 46,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_046_figure_1.png",
+    "sha256": "4f823ca71bc2883355c664da354567004a15d80038a25a11c508fa9d5d5bdcbd"
+  },
+  {
+    "cell_id": "f4f2fe5a",
+    "cell_index": 52,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_052_figure_1.png",
+    "sha256": "77b80c118aec1b0331cf242f8f9c5c4ac1f1675d2608f17dce8d6f5cacc3ca4c"
+  },
+  {
+    "cell_id": "eb52f45a",
+    "cell_index": 58,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_058_figure_1.png",
+    "sha256": "e8200213ff3132b50f944da29a70519659346bff96e287cfb4066dfdf29a80e9"
+  },
+  {
+    "cell_id": "f8f3bb07",
+    "cell_index": 59,
+    "figure_index": 1,
+    "figure": "figures/notebook/home_credit/cell_059_figure_1.png",
+    "sha256": "25c3e796bab7eafeefa1142dbe37927b3791b31ba7a948e1fcdf5dbeeff48568"
+  }
+]

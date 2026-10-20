@@ -1,0 +1,32 @@
+PROJECT PRESENTATIONS
+
+01_california_housing_REVISED.pptx
+  Main presentation: slides 1–23. Appendix: slides 24–47.
+
+02_wine_quality_REVISED.pptx
+  Main presentation: slides 1–26. Appendix: slides 27–63.
+
+03_sailing_boats_REVISED.pptx
+  Main presentation: slides 1–25. Appendix: slides 26–54.
+
+04_crypto_microstructure_REVISED.pptx
+  Main presentation: slides 1–24. Appendix: slides 25–50.
+
+05_pjm_energy_REVISED.pptx
+  Main presentation: slides 1–25. Appendix: slides 26–54.
+
+06_german_electricity_REVISED.pptx
+  Main presentation: slides 1–24. Appendix: slides 25–53.
+
+07_give_me_some_credit_REVISED.pptx
+  Main presentation: slides 1–23. Appendix: slides 24–48.
+
+08_home_credit_REVISED.pptx
+  Main presentation: slides 1–23. Appendix: slides 24–48.
+
+09_amex_default_REVISED.pptx
+  Main presentation: slides 1–23. Appendix: slides 24–48.
+
+The main presentation covers the objective, data, preprocessing, EDA,
+features, validation, methods, results, limitations, next steps and conclusion.
+Appendices include every remaining notebook figure, all configurations and Q&A.

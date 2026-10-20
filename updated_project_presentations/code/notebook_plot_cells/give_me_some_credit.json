@@ -1,0 +1,47 @@
+[
+  {
+    "cell_index": 8,
+    "cell_id": "a4c371ab",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 5))\n\ny.value_counts().plot(kind=\"bar\", ax=axes[0], color=[\"steelblue\", \"indianred\"])\naxes[0].set_title(f\"Target balance: SeriousDlqin2yrs ({y.mean():.1%} positive)\")\naxes[0].set_xticklabels([\"No (0)\", \"Yes (1)\"], rotation=0)\n\ncorr = df[feature_cols + [\"SeriousDlqin2yrs\"]].corr(numeric_only=True)[\"SeriousDlqin2yrs\"].drop(\"SeriousDlqin2yrs\")\ncorr.sort_values().plot(kind=\"barh\", ax=axes[1], color=\"steelblue\")\naxes[1].set_title(\"Correlation with target\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 15,
+    "cell_id": "b7246305",
+    "source": "coef_df = pd.DataFrame({\n    \"feature\": feature_cols,\n    \"coefficient\": log_reg.coef_[0]\n}).sort_values(\"coefficient\", key=abs, ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=coef_df, x=\"coefficient\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Logistic Regression coefficients (log-odds, standardized features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_df\n"
+  },
+  {
+    "cell_index": 29,
+    "cell_id": "104a6d9c",
+    "source": "plt.plot(mlp.loss_curve_)\nplt.title(\"MLP training loss curve\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Loss\")\nplt.show()\n"
+  },
+  {
+    "cell_index": 35,
+    "cell_id": "3d7404df",
+    "source": "rf_importance = pd.DataFrame({\n    \"feature\": feature_cols, \"importance\": rf.feature_importances_\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Random Forest feature importances\")\nplt.tight_layout()\nplt.show()\nrf_importance\n"
+  },
+  {
+    "cell_index": 41,
+    "cell_id": "fb14f52c",
+    "source": "xgb_importance = pd.DataFrame({\n    \"feature\": feature_cols, \"importance\": xgb.feature_importances_\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=xgb_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"XGBoost feature importances\")\nplt.tight_layout()\nplt.show()\nxgb_importance\n"
+  },
+  {
+    "cell_index": 47,
+    "cell_id": "d42356ca",
+    "source": "cat_importance = pd.DataFrame({\n    \"feature\": feature_cols, \"importance\": cat.get_feature_importance()\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=cat_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"CatBoost feature importances\")\nplt.tight_layout()\nplt.show()\ncat_importance\n"
+  },
+  {
+    "cell_index": 53,
+    "cell_id": "9dac3dda",
+    "source": "lgbm_importance = pd.DataFrame({\n    \"feature\": feature_cols, \"importance\": lgbm.feature_importances_\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=lgbm_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"LightGBM feature importances\")\nplt.tight_layout()\nplt.show()\nlgbm_importance\n"
+  },
+  {
+    "cell_index": 59,
+    "cell_id": "f95c8d10",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\norder = results_df.index\nsns.barplot(x=results_df.loc[order, \"ROC_AUC\"], y=order, palette=\"viridis\", ax=axes[0])\naxes[0].set_title(\"ROC-AUC by model\")\naxes[0].axvline(0.5, color=\"black\", linewidth=0.8, linestyle=\"--\")\n\nprobas = {\n    \"LogisticRegression\": y_proba_lr, \"KNN\": y_proba_knn, \"RandomForest\": y_proba_rf,\n    \"XGBoost\": y_proba_xgb, \"CatBoost\": y_proba_cat, \"LightGBM\": y_proba_lgbm,\n}\nfor name, p in probas.items():\n    fpr, tpr, _ = roc_curve(y_test, p)\n    axes[1].plot(fpr, tpr, label=f\"{name} (AUC={roc_auc_score(y_test, p):.3f})\")\naxes[1].plot([0, 1], [0, 1], \"k--\", linewidth=1, label=\"random\")\naxes[1].set_xlabel(\"False Positive Rate\")\naxes[1].set_ylabel(\"True Positive Rate\")\naxes[1].set_title(\"ROC curves (baseline models)\")\naxes[1].legend(fontsize=8)\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 60,
+    "cell_id": "c2106393",
+    "source": "best_model_name = results_df.index[0]\nbest_proba = {**probas, \"MLP\": y_proba_mlp,\n              \"MLP (tuned)\": y_proba_mlp_tuned, \"RandomForest (tuned)\": y_proba_rf_tuned,\n              \"XGBoost (tuned)\": y_proba_xgb_tuned, \"CatBoost (tuned)\": y_proba_cat_tuned,\n              \"LightGBM (tuned)\": y_proba_lgbm_tuned}[best_model_name]\n\ncm = confusion_matrix(y_test, (best_proba >= 0.5).astype(int))\nplt.figure(figsize=(5, 4))\nsns.heatmap(cm, annot=True, fmt=\"d\", cmap=\"Blues\",\n            xticklabels=[\"Pred: No\", \"Pred: Yes\"], yticklabels=[\"Actual: No\", \"Actual: Yes\"])\nplt.title(f\"Confusion matrix -- {best_model_name} (threshold=0.5)\")\nplt.tight_layout()\nplt.show()\n\nprint(f\"At the default 0.5 threshold, {best_model_name} catches \"\n      f\"{cm[1,1]}/{cm[1].sum()} ({cm[1,1]/cm[1].sum():.1%}) of actual delinquencies, \"\n      f\"at the cost of {cm[0,1]} false alarms out of {cm[0].sum()} non-delinquent applicants.\")\n"
+  }
+]

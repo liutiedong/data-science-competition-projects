@@ -1,0 +1,67 @@
+[
+  {
+    "cell_index": 7,
+    "cell_id": "a5325d5e",
+    "source": "fig, axes = plt.subplots(2, 1, figsize=(14, 8))\n\ndf[\"PJME_MW\"].plot(ax=axes[0], linewidth=0.1)\naxes[0].set_title(f\"Full series, 2002-2018 (skew={df['PJME_MW'].skew():.2f} -- mild, no transform needed)\")\naxes[0].set_ylabel(\"MW\")\n\ndf[\"PJME_MW\"].loc[\"2017-01-01\":\"2017-03-01\"].plot(ax=axes[1])\naxes[1].set_title(\"Zoomed: Jan-Feb 2017 -- daily cycles nested in a weekly pattern\")\naxes[1].set_ylabel(\"MW\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 8,
+    "cell_id": "69769fd3",
+    "source": "fig, axes = plt.subplots(1, 3, figsize=(16, 4.5))\n\nhourly = df.groupby(df.index.hour)[\"PJME_MW\"].mean()\nhourly.plot(kind=\"line\", marker=\"o\", ax=axes[0])\naxes[0].set_title(\"Mean load by hour-of-day\")\naxes[0].set_xlabel(\"Hour\")\n\ndow = df.groupby(df.index.dayofweek)[\"PJME_MW\"].mean()\ndow.index = [\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\",\"Sat\",\"Sun\"]\ndow.plot(kind=\"bar\", ax=axes[1], color=\"steelblue\")\naxes[1].set_title(\"Mean load by day-of-week\")\n\nmonthly = df.groupby(df.index.month)[\"PJME_MW\"].mean()\nmonthly.plot(kind=\"line\", marker=\"o\", ax=axes[2], color=\"darkorange\")\naxes[2].set_title(\"Mean load by month\")\naxes[2].set_xlabel(\"Month\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 12,
+    "cell_id": "8ead2f00",
+    "source": "fig, ax = plt.subplots(figsize=(8, 4))\nacs = [df[\"PJME_MW\"].autocorr(lag=l) for l in [1, 2, 3, 6, 12, 24, 48, 72, 96, 120, 144, 168, 192]]\nax.bar([str(l) for l in [1, 2, 3, 6, 12, 24, 48, 72, 96, 120, 144, 168, 192]], acs)\nax.set_title(\"Autocorrelation of raw hourly load at several lags\")\nax.set_xlabel(\"Lag (hours)\")\nax.axhline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 19,
+    "cell_id": "55ad4b11",
+    "source": "coef_df = pd.DataFrame({\"feature\": numeric_features, \"coefficient\": lin_reg.coef_}\n                       ).sort_values(\"coefficient\", key=abs, ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=coef_df, x=\"coefficient\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Linear Regression coefficients (standardized features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\ncoef_df\n"
+  },
+  {
+    "cell_index": 24,
+    "cell_id": "33657b38",
+    "source": "coef_compare = pd.DataFrame({\n    \"feature\": numeric_features, \"LinearRegression\": lin_reg.coef_,\n    \"Ridge\": ridge.coef_, \"Lasso\": lasso.coef_, \"ElasticNet\": elastic.coef_,\n}).set_index(\"feature\")\ncoef_compare.plot(kind=\"barh\", figsize=(9, 6))\nplt.title(\"Coefficient comparison: OLS vs. Ridge vs. Lasso vs. Elastic Net\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\ncoef_compare\n"
+  },
+  {
+    "cell_index": 33,
+    "cell_id": "27e50985",
+    "source": "plt.plot(mlp.loss_curve_)\nplt.title(\"MLP training loss curve\")\nplt.xlabel(\"Iteration\"); plt.ylabel(\"Loss\")\nplt.show()\n"
+  },
+  {
+    "cell_index": 39,
+    "cell_id": "f6556cc8",
+    "source": "rf_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": rf.feature_importances_}\n                             ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Random Forest feature importances\")\nplt.tight_layout()\nplt.show()\nrf_importance\n"
+  },
+  {
+    "cell_index": 45,
+    "cell_id": "f5ba027a",
+    "source": "xgb_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": xgb.feature_importances_}\n                              ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=xgb_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"XGBoost feature importances\")\nplt.tight_layout()\nplt.show()\nxgb_importance\n"
+  },
+  {
+    "cell_index": 51,
+    "cell_id": "7f5ac0f3",
+    "source": "cat_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": cat.get_feature_importance()}\n                               ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=cat_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"CatBoost feature importances\")\nplt.tight_layout()\nplt.show()\ncat_importance\n"
+  },
+  {
+    "cell_index": 57,
+    "cell_id": "a3aa57b9",
+    "source": "lgbm_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": lgbm.feature_importances_}\n                                ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=lgbm_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"LightGBM feature importances\")\nplt.tight_layout()\nplt.show()\nlgbm_importance\n"
+  },
+  {
+    "cell_index": 63,
+    "cell_id": "41bbb10a",
+    "source": "horizon = 24 * 14  # two weeks, matching the comparison plot below\nforecast = sarima.get_forecast(steps=horizon)\nmean = forecast.predicted_mean\nci = forecast.conf_int(alpha=0.05)\nopen_rmse = mean_squared_error(y_test.iloc[:horizon], mean.to_numpy()) ** 0.5\nprint(f\"14-day open-loop forecast  RMSE={open_rmse:.1f}   \"\n      f\"(one-step SARIMA over the full test year: RMSE={results['SARIMA']['RMSE']:.1f})\")\n\nfig, ax = plt.subplots(figsize=(14, 5))\nax.plot(mean.index, y_test.values[:horizon], label=\"actual\", linewidth=1.2)\nax.plot(mean.index, mean.values, label=\"SARIMA forecast (no test actuals)\", linewidth=1.2)\nax.fill_between(mean.index, ci.iloc[:, 0], ci.iloc[:, 1], alpha=0.2, label=\"95% interval\")\nax.set_title(\"Open-loop SARIMA forecast, first two test weeks\")\nax.set_ylabel(\"MW\")\nax.legend()\nax.tick_params(axis=\"x\", rotation=30)\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 66,
+    "cell_id": "053de118",
+    "source": "fig, axes = plt.subplots(1, 4, figsize=(20, 5))\nfor ax, metric in zip(axes, [\"RMSE\", \"MAE\", \"R2\", \"MAPE_%\"]):\n    order = results_df.sort_values(metric, ascending=(metric != \"R2\")).index\n    sns.barplot(x=results_df.loc[order, metric], y=order, palette=\"viridis\", ax=ax)\n    ax.set_title(metric)\n    ax.set_ylabel(\"\")\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 67,
+    "cell_id": "be9c00c0",
+    "source": "best_model_name = results_df.index[0]\npreds_all = {\n    \"LinearRegression\": y_pred_lr, \"Ridge\": y_pred_ridge, \"Lasso\": y_pred_lasso,\n    \"ElasticNet\": y_pred_elastic, \"MLP\": y_pred_mlp, \"MLP (tuned)\": y_pred_mlp_tuned,\n    \"KNN\": y_pred_knn, \"KNN (tuned)\": y_pred_knn_tuned,\n    \"RandomForest\": y_pred_rf, \"RandomForest (tuned)\": y_pred_rf_tuned,\n    \"XGBoost\": y_pred_xgb, \"XGBoost (tuned)\": y_pred_xgb_tuned,\n    \"CatBoost\": y_pred_cat, \"CatBoost (tuned)\": y_pred_cat_tuned,\n    \"LightGBM\": y_pred_lgbm, \"LightGBM (tuned)\": y_pred_lgbm_tuned,\n    \"ARIMA\": y_pred_arima, \"SARIMA\": y_pred_sarima,\n}\nbest_pred = preds_all[best_model_name]\n\nfig, ax = plt.subplots(figsize=(14, 5))\nwindow = slice(0, 24 * 14)  # first two test weeks\nax.plot(dates_test.values[window], y_test.values[window], label=\"actual\", linewidth=1.2)\nax.plot(dates_test.values[window], best_pred[window], label=f\"predicted ({best_model_name})\",\n        linewidth=1.2, alpha=0.8)\nax.set_title(f\"Test-period load: actual vs. predicted ({best_model_name}), first two test weeks\")\nax.set_ylabel(\"MW\")\nax.legend()\nax.tick_params(axis=\"x\", rotation=30)\nplt.tight_layout()\nplt.show()\n"
+  }
+]

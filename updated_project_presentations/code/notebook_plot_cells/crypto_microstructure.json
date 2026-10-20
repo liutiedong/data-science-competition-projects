@@ -1,0 +1,62 @@
+[
+  {
+    "cell_index": 9,
+    "cell_id": "6594c574",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 5))\n\ndf[\"next_vol\"].hist(bins=80, ax=axes[0])\naxes[0].set_title(f\"Raw next-minute realized vol (skew={df['next_vol'].skew():.1f})\")\naxes[0].set_xlabel(\"next_vol\")\n\ndf[\"log_next_vol\"].hist(bins=80, ax=axes[1], color=\"darkorange\")\naxes[1].set_title(f\"log1p(next_vol) (skew={df['log_next_vol'].skew():.2f})\")\naxes[1].set_xlabel(\"log1p(next_vol)\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 11,
+    "cell_id": "9e568e86",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(15, 5))\n\nac_rows = []\nfor (sym, ven), g in df.groupby([\"symbol\", \"venue\"]):\n    g = g.sort_values(\"timestamp\")\n    for lag in range(1, 11):\n        ac_rows.append({\"symbol\": sym, \"venue\": ven, \"lag\": lag,\n                         \"autocorr\": g[\"realized_vol\"].autocorr(lag=lag)})\nac_df = pd.DataFrame(ac_rows)\nsns.lineplot(data=ac_df, x=\"lag\", y=\"autocorr\", hue=\"venue\", style=\"symbol\",\n             markers=True, ax=axes[0])\naxes[0].axhline(0, color=\"black\", linewidth=0.8)\naxes[0].set_title(\"Autocorrelation of realized_vol by lag\\n(volatility clustering)\")\n\nsns.boxplot(data=df, x=\"venue\", y=\"spread_bps\", showfliers=False, ax=axes[1])\naxes[1].set_title(\"Quoted spread (bps) by venue\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 13,
+    "cell_id": "a75b845e",
+    "source": "corr = df[numeric_features + [\"log_next_vol\"]].corr(numeric_only=True)\nplt.figure(figsize=(9, 7))\nsns.heatmap(corr, annot=True, fmt=\".2f\", cmap=\"coolwarm\", center=0)\nplt.title(\"Feature correlation matrix (numeric features + log target)\")\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 20,
+    "cell_id": "acb8ace5",
+    "source": "coef_df = pd.DataFrame({\n    \"feature\": scaled_feature_names,\n    \"coefficient\": lin_reg.coef_\n}).sort_values(\"coefficient\", key=abs, ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=coef_df, x=\"coefficient\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Linear Regression coefficients (top 20 by |coefficient|)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_df\n"
+  },
+  {
+    "cell_index": 27,
+    "cell_id": "c90b6156",
+    "source": "coef_compare = pd.DataFrame({\n    \"feature\": scaled_feature_names,\n    \"LinearRegression\": lin_reg.coef_,\n    \"Ridge\": ridge.coef_,\n    \"Lasso\": lasso.coef_,\n    \"ElasticNet\": elastic.coef_,\n}).set_index(\"feature\")\n\ntop_features = coef_compare[\"LinearRegression\"].abs().sort_values(ascending=False).head(20).index\ncoef_compare.loc[top_features].plot(kind=\"barh\", figsize=(9, 7))\nplt.title(\"Coefficient comparison: OLS vs. Ridge vs. Lasso vs. Elastic Net (top 20 features)\")\nplt.xlabel(\"Coefficient (standardized/encoded features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_compare.loc[top_features]\n"
+  },
+  {
+    "cell_index": 36,
+    "cell_id": "83af3a08",
+    "source": "plt.plot(mlp.loss_curve_)\nplt.title(\"MLP training loss curve\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Loss\")\nplt.show()\n\nprint(f\"Stopped after {len(mlp.loss_curve_)} iterations \"\n      f\"(early_stopping={'triggered' if mlp.n_iter_ < mlp.max_iter else 'not triggered'})\")\n"
+  },
+  {
+    "cell_index": 42,
+    "cell_id": "ad4b9b63",
+    "source": "rf_importance = pd.DataFrame({\n    \"feature\": tree_feature_names,\n    \"importance\": rf.feature_importances_\n}).sort_values(\"importance\", ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Random Forest feature importances (top 20)\")\nplt.tight_layout()\nplt.show()\n\nrf_importance\n"
+  },
+  {
+    "cell_index": 48,
+    "cell_id": "a34b2ba9",
+    "source": "xgb_importance = pd.DataFrame({\n    \"feature\": tree_feature_names,\n    \"importance\": xgb.feature_importances_\n}).sort_values(\"importance\", ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=xgb_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"XGBoost feature importances (top 20)\")\nplt.tight_layout()\nplt.show()\n\nxgb_importance\n"
+  },
+  {
+    "cell_index": 54,
+    "cell_id": "95083c80",
+    "source": "cat_importance = pd.DataFrame({\n    \"feature\": X_train.columns,\n    \"importance\": cat.get_feature_importance()\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=cat_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"CatBoost feature importances (native categorical handling, no one-hot)\")\nplt.tight_layout()\nplt.show()\n\ncat_importance\n"
+  },
+  {
+    "cell_index": 60,
+    "cell_id": "1717a9d2",
+    "source": "lgbm_importance = pd.DataFrame({\n    \"feature\": tree_feature_names,\n    \"importance\": lgbm.feature_importances_\n}).sort_values(\"importance\", ascending=False).head(20)\n\nplt.figure(figsize=(9, 6))\nsns.barplot(data=lgbm_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"LightGBM feature importances (top 20)\")\nplt.tight_layout()\nplt.show()\n\nlgbm_importance\n"
+  },
+  {
+    "cell_index": 66,
+    "cell_id": "c6e2f811",
+    "source": "fig, axes = plt.subplots(1, 3, figsize=(16, 5))\n\nfor ax, metric in zip(axes, [\"RMSE\", \"MAE\", \"R2\"]):\n    order = results_df.sort_values(metric, ascending=(metric != \"R2\")).index\n    sns.barplot(x=results_df.loc[order, metric], y=order, palette=\"viridis\", ax=ax)\n    ax.set_title(f\"{metric} (log1p(next_vol) units)\")\n    ax.set_ylabel(\"\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 67,
+    "cell_id": "b67da88d",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\npreds = {\n    \"LinearRegression\": y_pred_lr, \"Ridge\": y_pred_ridge, \"Lasso\": y_pred_lasso,\n    \"ElasticNet\": y_pred_elastic, \"MLP\": y_pred_mlp, \"RandomForest\": y_pred_rf,\n    \"XGBoost\": y_pred_xgb, \"CatBoost\": y_pred_cat, \"LightGBM\": y_pred_lgbm,\n}\n\nax = axes[0]\nfor name, p in preds.items():\n    ax.scatter(y_test, p, alpha=0.15, s=8, label=name)\nlims = [y_test.min(), y_test.max()]\nax.plot(lims, lims, \"k--\", linewidth=1, label=\"perfect prediction\")\nax.set_xlabel(\"Actual log1p(next_vol)\")\nax.set_ylabel(\"Predicted log1p(next_vol)\")\nax.set_title(\"Predicted vs. actual (test set, chronologically after train)\")\nax.legend(markerscale=3, fontsize=7)\n\nax = axes[1]\nbest_model_name = results_df.index[0]\nbest_pred = preds.get(best_model_name)\nif best_pred is None:  # a (tuned) model won -- recover its raw predictions by name\n    best_pred = {\"MLP (tuned)\": y_pred_mlp_tuned,\n    \"KNN\": y_pred_knn, \"KNN (tuned)\": y_pred_knn_tuned, \"RandomForest (tuned)\": y_pred_rf_tuned,\n                 \"XGBoost (tuned)\": y_pred_xgb_tuned, \"CatBoost (tuned)\": y_pred_cat_tuned,\n                 \"LightGBM (tuned)\": y_pred_lgbm_tuned}[best_model_name]\ntest_plot = test_df.copy()\ntest_plot[\"pred\"] = best_pred\ntest_plot[\"actual\"] = y_test.values\nsample = test_plot[(test_plot[\"symbol\"] == \"BTC\")].sort_values(\"timestamp\")\nax.plot(sample[\"timestamp\"], sample[\"actual\"], label=\"actual\", linewidth=1, alpha=0.8)\nax.plot(sample[\"timestamp\"], sample[\"pred\"], label=f\"predicted ({best_model_name})\", linewidth=1, alpha=0.8)\nax.set_title(f\"BTC test-period volatility: actual vs. predicted ({best_model_name})\")\nax.legend(fontsize=8)\nax.tick_params(axis=\"x\", rotation=30)\n\nplt.tight_layout()\nplt.show()\n"
+  }
+]

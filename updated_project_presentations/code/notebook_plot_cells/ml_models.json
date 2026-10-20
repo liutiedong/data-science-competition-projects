@@ -1,0 +1,52 @@
+[
+  {
+    "cell_index": 8,
+    "cell_id": "d391a27d",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 5))\n\ny.hist(bins=50, ax=axes[0])\naxes[0].set_title(\"Target distribution: MedHouseVal\")\naxes[0].set_xlabel(\"Median house value ($100k)\")\n\ncorr = df.corr(numeric_only=True)\nsns.heatmap(corr, annot=True, fmt=\".2f\", cmap=\"coolwarm\", center=0, ax=axes[1])\naxes[1].set_title(\"Feature correlation matrix\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 16,
+    "cell_id": "b8d16811",
+    "source": "coef_df = pd.DataFrame({\n    \"feature\": X.columns,\n    \"coefficient\": lin_reg.coef_\n}).sort_values(\"coefficient\", key=abs, ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=coef_df, x=\"coefficient\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Linear Regression coefficients (standardized features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_df\n"
+  },
+  {
+    "cell_index": 23,
+    "cell_id": "08603448",
+    "source": "coef_compare = pd.DataFrame({\n    \"feature\": X.columns,\n    \"LinearRegression\": lin_reg.coef_,\n    \"Ridge\": ridge.coef_,\n    \"Lasso\": lasso.coef_,\n    \"ElasticNet\": elastic.coef_,\n}).set_index(\"feature\")\n\ncoef_compare.plot(kind=\"barh\", figsize=(9, 6))\nplt.title(\"Coefficient comparison: OLS vs. Ridge vs. Lasso vs. Elastic Net\")\nplt.xlabel(\"Coefficient (standardized features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\n\ncoef_compare\n"
+  },
+  {
+    "cell_index": 32,
+    "cell_id": "05b47cdb",
+    "source": "plt.plot(mlp.loss_curve_)\nplt.title(\"MLP training loss curve\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Loss\")\nplt.show()\n\nprint(f\"Stopped after {len(mlp.loss_curve_)} iterations \"\n      f\"(early_stopping={'triggered' if mlp.n_iter_ < mlp.max_iter else 'not triggered'})\")\n"
+  },
+  {
+    "cell_index": 39,
+    "cell_id": "fdb89a0a",
+    "source": "rf_importance = pd.DataFrame({\n    \"feature\": X.columns,\n    \"importance\": rf.feature_importances_\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Random Forest feature importances\")\nplt.tight_layout()\nplt.show()\n\nrf_importance\n"
+  },
+  {
+    "cell_index": 45,
+    "cell_id": "61c4e466",
+    "source": "xgb_importance = pd.DataFrame({\n    \"feature\": X.columns,\n    \"importance\": xgb.feature_importances_\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=xgb_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"XGBoost feature importances\")\nplt.tight_layout()\nplt.show()\n\nxgb_importance\n"
+  },
+  {
+    "cell_index": 51,
+    "cell_id": "a5b2e8d8",
+    "source": "cat_importance = pd.DataFrame({\n    \"feature\": X.columns,\n    \"importance\": cat.get_feature_importance()\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=cat_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"CatBoost feature importances\")\nplt.tight_layout()\nplt.show()\n\ncat_importance\n"
+  },
+  {
+    "cell_index": 57,
+    "cell_id": "67e62f3c",
+    "source": "lgbm_importance = pd.DataFrame({\n    \"feature\": X.columns,\n    \"importance\": lgbm.feature_importances_\n}).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=lgbm_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"LightGBM feature importances\")\nplt.tight_layout()\nplt.show()\n\nlgbm_importance\n"
+  },
+  {
+    "cell_index": 63,
+    "cell_id": "f7104818",
+    "source": "fig, axes = plt.subplots(1, 3, figsize=(16, 5))\n\nfor ax, metric in zip(axes, [\"RMSE\", \"MAE\", \"R2\"]):\n    order = results_df.sort_values(metric, ascending=(metric != \"R2\")).index\n    sns.barplot(x=results_df.loc[order, metric], y=order, palette=\"viridis\", ax=ax)\n    ax.set_title(metric)\n    ax.set_ylabel(\"\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 64,
+    "cell_id": "6737e6ce",
+    "source": "fig, ax = plt.subplots(figsize=(7, 7))\npreds = {\n    \"LinearRegression\": y_pred_lr,\n    \"Ridge\": y_pred_ridge,\n    \"Lasso\": y_pred_lasso,\n    \"ElasticNet\": y_pred_elastic,\n    \"MLP\": y_pred_mlp,\n    \"KNN\": y_pred_knn,\n    \"RandomForest\": y_pred_rf,\n    \"XGBoost\": y_pred_xgb,\n    \"CatBoost\": y_pred_cat,\n    \"LightGBM\": y_pred_lgbm,\n}\nfor name, p in preds.items():\n    ax.scatter(y_test, p, alpha=0.25, s=12, label=name)\n\nlims = [y_test.min(), y_test.max()]\nax.plot(lims, lims, \"k--\", linewidth=1, label=\"perfect prediction\")\nax.set_xlabel(\"Actual MedHouseVal\")\nax.set_ylabel(\"Predicted MedHouseVal\")\nax.set_title(\"Predicted vs. actual, all models\")\nax.legend(markerscale=2, fontsize=8)\nplt.tight_layout()\nplt.show()\n"
+  }
+]

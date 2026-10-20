@@ -1,0 +1,102 @@
+{
+  "notebooks": [
+    {
+      "notebook": "wine_quality_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 1279,
+      "test_rows": 320,
+      "executed_cells": 48,
+      "figures": 14,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "amex_default_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 3671,
+      "test_rows": 918,
+      "executed_cells": 39,
+      "figures": 9,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "ml_models_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 16512,
+      "test_rows": 4128,
+      "executed_cells": 40,
+      "figures": 10,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "sailing_boats_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 5966,
+      "test_rows": 1492,
+      "executed_cells": 42,
+      "figures": 12,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "open_power_systems_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 3288,
+      "test_rows": 730,
+      "executed_cells": 51,
+      "figures": 15,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "give_me_some_credit_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 119999,
+      "test_rows": 30000,
+      "executed_cells": 39,
+      "figures": 9,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "crypto_microstructure_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 83053,
+      "test_rows": 20767,
+      "executed_cells": 42,
+      "figures": 12,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "pjm_energy_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 136464,
+      "test_rows": 8760,
+      "executed_cells": 44,
+      "figures": 13,
+      "recomputed_prediction_vectors": 19
+    },
+    {
+      "notebook": "home_credit_tutorial.ipynb",
+      "passed": true,
+      "training_rows": 246008,
+      "test_rows": 61503,
+      "executed_cells": 39,
+      "figures": 9,
+      "recomputed_prediction_vectors": 17
+    },
+    {
+      "notebook": "mock/online_shoppers_solution.ipynb",
+      "passed": true,
+      "training_rows": 7398,
+      "test_rows": 2466,
+      "executed_cells": 26,
+      "figures": 18,
+      "recomputed_prediction_vectors": 0
+    }
+  ],
+  "builders_executed": 5,
+  "original_figures": 103,
+  "mock_figures": 18,
+  "practice_notebook_preserved": true,
+  "mock_generator_executed": true,
+  "mock_test_metrics_recomputed": true,
+  "active_training_wrappers_removed": true,
+  "solver_warning_records": "solver_warnings.csv"
+}

@@ -1,0 +1,11 @@
+notebook,status,training_rows,test_rows,executed_code_cells,figures,stderr_blocks,seconds
+wine_quality_tutorial.ipynb,passed,1279,320,48,14,12,32.83
+amex_default_tutorial.ipynb,passed,3671,918,39,9,13,70.29
+ml_models_tutorial.ipynb,passed,16512,4128,40,10,8,53.59
+sailing_boats_tutorial.ipynb,passed,5966,1492,42,12,12,28.07
+open_power_systems_tutorial.ipynb,passed,3288,730,51,15,8,26.58
+give_me_some_credit_tutorial.ipynb,passed,119999,30000,39,9,8,140.14
+crypto_microstructure_tutorial.ipynb,passed,83053,20767,42,12,14,334.85
+pjm_energy_tutorial.ipynb,passed,136464,8760,44,13,8,956.65
+home_credit_tutorial.ipynb,passed,246008,61503,39,9,12,1178.76
+mock/online_shoppers_solution.ipynb,passed,7398,2466,26,18,0,42.61

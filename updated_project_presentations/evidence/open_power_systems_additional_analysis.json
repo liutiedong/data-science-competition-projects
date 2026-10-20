@@ -1,0 +1,86 @@
+{
+  "winner": "Stacking",
+  "runner_up": "XGBoost (tuned)",
+  "n_test": 730,
+  "resampling": "paired circular block bootstrap, 7 days",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "Stacking versus XGBoost (tuned)",
+      "other": "XGBoost (tuned)",
+      "advantage": 0.43324708455732974,
+      "ci_low": -1.0277698128804302,
+      "ci_high": 1.8252383107579178
+    },
+    {
+      "comparison": "Stacking versus OLS",
+      "other": "OLS",
+      "advantage": 11.214981885882231,
+      "ci_low": 7.180868699890031,
+      "ci_high": 15.495805571573399
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "error_slices": [
+    {
+      "group": "(1016.023, 1272.785]",
+      "n": 183,
+      "rmse": 72.67749741567671,
+      "mae": 33.97762873669213,
+      "bias": 19.999782588291467
+    },
+    {
+      "group": "(1272.785, 1407.601]",
+      "n": 182,
+      "rmse": 32.66637405286829,
+      "mae": 21.58923967103387,
+      "bias": -5.450139818855988
+    },
+    {
+      "group": "(1407.601, 1498.972]",
+      "n": 182,
+      "rmse": 26.149853173374954,
+      "mae": 17.53833303630561,
+      "bias": -10.565754542794508
+    },
+    {
+      "group": "(1498.972, 1682.002]",
+      "n": 183,
+      "rmse": 25.736423190258115,
+      "mae": 19.303964045770556,
+      "bias": -9.203104993239245
+    }
+  ],
+  "rmse": 43.89412801672414,
+  "mae": 23.111985906748576,
+  "calendar_error": [
+    {
+      "period": 0,
+      "rmse": 75.6690707813293
+    },
+    {
+      "period": 1,
+      "rmse": 42.07829570934421
+    },
+    {
+      "period": 2,
+      "rmse": 25.021788741330024
+    },
+    {
+      "period": 3,
+      "rmse": 50.681584094249374
+    },
+    {
+      "period": 4,
+      "rmse": 41.427865133377146
+    },
+    {
+      "period": 5,
+      "rmse": 24.2385473914052
+    },
+    {
+      "period": 6,
+      "rmse": 22.768401423755037
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "winner": "LightGBM",
+  "runner_up": "Stacking",
+  "n_test": 4128,
+  "resampling": "paired row bootstrap",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "LightGBM versus Stacking",
+      "other": "Stacking",
+      "advantage": 0.0017136471709647827,
+      "ci_low": -0.0014348846957895566,
+      "ci_high": 0.004762718439082734
+    },
+    {
+      "comparison": "LightGBM versus OLS",
+      "other": "OLS",
+      "advantage": 0.3062914198568082,
+      "ci_low": 0.27564976928646623,
+      "ci_high": 0.34602851468750845
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "error_slices": [
+    {
+      "group": "(0.149, 1.193]",
+      "n": 1032,
+      "rmse": 0.31100331643661794,
+      "mae": 0.2002352031441408,
+      "bias": 0.15043898868267655
+    },
+    {
+      "group": "(1.193, 1.786]",
+      "n": 1032,
+      "rmse": 0.30953414572065613,
+      "mae": 0.21498835863549812,
+      "bias": 0.08484603340493778
+    },
+    {
+      "group": "(1.786, 2.63]",
+      "n": 1032,
+      "rmse": 0.3662916324986787,
+      "mae": 0.26139402922109245,
+      "bias": 0.03280525068038806
+    },
+    {
+      "group": "(2.63, 5.0]",
+      "n": 1032,
+      "rmse": 0.6672321010549099,
+      "mae": 0.47675836964536084,
+      "bias": -0.24512952342952632
+    }
+  ],
+  "rmse": 0.43928996315596835,
+  "mae": 0.2883439901615231,
+  "capped_targets": {
+    "n": 184,
+    "mae_usd": 62004.585754020314,
+    "bias_usd": -55609.6827242316
+  }
+}

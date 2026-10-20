@@ -1,0 +1,49 @@
+{
+  "winner": "Stacking",
+  "runner_up": "RandomForest",
+  "n_test": 320,
+  "resampling": "paired row bootstrap",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "Stacking versus RandomForest",
+      "other": "RandomForest",
+      "advantage": 0.0025747180588177043,
+      "ci_low": -0.006052673595425295,
+      "ci_high": 0.0117741256557128
+    },
+    {
+      "comparison": "Stacking versus OLS",
+      "other": "OLS",
+      "advantage": 0.06952853416013749,
+      "ci_low": 0.034273156825030474,
+      "ci_high": 0.1081055561664954
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "error_slices": [
+    {
+      "group": "(2.999, 5.0]",
+      "n": 141,
+      "rmse": 0.5737609308737056,
+      "mae": 0.4154510522973062,
+      "bias": 0.3955874847094629
+    },
+    {
+      "group": "(5.0, 6.0]",
+      "n": 132,
+      "rmse": 0.4338728830305757,
+      "mae": 0.35669712152377825,
+      "bias": -0.20170889450746815
+    },
+    {
+      "group": "(6.0, 8.0]",
+      "n": 47,
+      "rmse": 0.7621231278336672,
+      "mae": 0.6684033242670228,
+      "bias": -0.6577761031442941
+    }
+  ],
+  "rmse": 0.5549913966378784,
+  "mae": 0.4283674207987781
+}

@@ -1,0 +1,5 @@
+notebook,cell,code,warning
+wine_quality_tutorial.ipynb,71,from sklearn.neighbors import KNeighborsClassifier,"/Users/ltd/miniconda3/lib/python3.13/site-packages/sklearn/linear_model/_sag.py:348: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  warnings.warn("
+wine_quality_tutorial.ipynb,71,from sklearn.neighbors import KNeighborsClassifier,"/Users/ltd/miniconda3/lib/python3.13/site-packages/sklearn/linear_model/_sag.py:348: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  warnings.warn("

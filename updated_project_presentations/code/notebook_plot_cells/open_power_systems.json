@@ -1,0 +1,77 @@
+[
+  {
+    "cell_index": 9,
+    "cell_id": "9f266c8a",
+    "source": "fig, axes = plt.subplots(2, 1, figsize=(16, 8))\n\ndf[\"Consumption\"].plot(ax=axes[0])\naxes[0].set_title(f\"Daily consumption, 2006-2017 (skew={df['Consumption'].skew():.2f} -- mild, no transform needed)\")\naxes[0].set_ylabel(\"GWh\")\n\ndf[[\"Wind\", \"Solar\"]].plot(ax=axes[1])\naxes[1].set_title(\"Wind & solar generation -- note solar's later, steadier ramp-up as metering expanded\")\naxes[1].set_ylabel(\"GWh\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 10,
+    "cell_id": "f09e9c35",
+    "source": "# The figure size is not being applied because plt.figure(...) creates a new figure,\n# but then df[[\"Consumption\", \"Wind\"]].plot() creates and returns its own figure and axes,\n# ignoring the previously set figure size.\n# To explicitly set the figure size for the pandas plot, pass figsize to the plot() call:\ndf[[\"Consumption\", \"Wind\"]].plot(figsize=(16, 4))\nplt.show()\n"
+  },
+  {
+    "cell_index": 11,
+    "cell_id": "39286243",
+    "source": "fig, axes = plt.subplots(1, 2, figsize=(14, 4.5))\n\nmonthly = df.groupby(df.index.month)[\"Consumption\"].mean()\nmonthly.plot(kind=\"line\", marker=\"o\", ax=axes[0])\naxes[0].set_title(\"Mean consumption by month -- winter peak (heating), not PJM's summer peak\")\naxes[0].set_xlabel(\"Month\")\n\ndow = df.groupby(df.index.dayofweek)[\"Consumption\"].mean()\ndow.index = [\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\",\"Sat\",\"Sun\"]\ndow.plot(kind=\"bar\", ax=axes[1])\naxes[1].set_title(\"Mean consumption by day-of-week -- same weekend dip as PJM\")\n\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 13,
+    "cell_id": "4829ec24",
+    "source": "corr = df[[\"Consumption\", \"Wind\", \"Solar\", \"Wind+Solar\"]].corr()\n\nprint(corr)\nplt.figure(figsize=(6, 5))\nsns.heatmap(corr, annot=True, fmt=\".2f\", cmap=\"coolwarm\", center=0)\nplt.title(\"Correlation: consumption vs. renewable generation\")\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 24,
+    "cell_id": "765fbea4",
+    "source": "coef_df = pd.DataFrame({\"feature\": numeric_features, \"coefficient\": lin_reg.coef_}\n                       ).sort_values(\"coefficient\", key=abs, ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=coef_df, x=\"coefficient\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Linear Regression coefficients (standardized features)\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\ncoef_df\n"
+  },
+  {
+    "cell_index": 29,
+    "cell_id": "7950dfdd",
+    "source": "coef_compare = pd.DataFrame({\n    \"feature\": numeric_features, \"LinearRegression\": lin_reg.coef_,\n    \"Ridge\": ridge.coef_, \"Lasso\": lasso.coef_, \"ElasticNet\": elastic.coef_,\n}).set_index(\"feature\")\ncoef_compare.plot(kind=\"barh\", figsize=(9, 6))\nplt.title(\"Coefficient comparison: OLS vs. Ridge vs. Lasso vs. Elastic Net\")\nplt.axvline(0, color=\"black\", linewidth=0.8)\nplt.tight_layout()\nplt.show()\ncoef_compare\n"
+  },
+  {
+    "cell_index": 42,
+    "cell_id": "56bc3bbf",
+    "source": "plt.plot(mlp.loss_curve_)\nplt.title(\"MLP training loss curve\")\nplt.xlabel(\"Iteration\")\nplt.ylabel(\"Loss\")\nplt.show()\n"
+  },
+  {
+    "cell_index": 43,
+    "cell_id": "715e6d7e",
+    "source": "plt.plot(mlp_model.loss_curve_)\nplt.ylabel(\"Training loss\")\nplt.xlabel(\"Iteration\")\nplt.show()\n"
+  },
+  {
+    "cell_index": 47,
+    "cell_id": "8cb8f20e",
+    "source": "rf_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": rf.feature_importances_}\n                             ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"Random Forest feature importances\")\nplt.tight_layout()\nplt.show()\nrf_importance\n"
+  },
+  {
+    "cell_index": 48,
+    "cell_id": "bba47913",
+    "source": "rf_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": random_forest.feature_importances_}\n).sort_values(\"importance\", ascending=False)\n\nplt.figure(figsize=(8, 5))\nsns.barplot(data=rf_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\n\nplt.title(\"Random Forest feature importances\")\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 54,
+    "cell_id": "1094de78",
+    "source": "xgb_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": xgb.feature_importances_}\n                              ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=xgb_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"XGBoost feature importances\")\nplt.tight_layout()\nplt.show()\nxgb_importance\n"
+  },
+  {
+    "cell_index": 60,
+    "cell_id": "e72900db",
+    "source": "cat_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": cat.get_feature_importance()}\n                               ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=cat_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"CatBoost feature importances\")\nplt.tight_layout()\nplt.show()\ncat_importance\n"
+  },
+  {
+    "cell_index": 66,
+    "cell_id": "3d28aa25",
+    "source": "lgbm_importance = pd.DataFrame({\"feature\": numeric_features, \"importance\": lgbm.feature_importances_}\n                                ).sort_values(\"importance\", ascending=False)\nplt.figure(figsize=(8, 5))\nsns.barplot(data=lgbm_importance, x=\"importance\", y=\"feature\", palette=\"viridis\")\nplt.title(\"LightGBM feature importances\")\nplt.tight_layout()\nplt.show()\nlgbm_importance\n"
+  },
+  {
+    "cell_index": 72,
+    "cell_id": "585ef066",
+    "source": "fig, axes = plt.subplots(1, 4, figsize=(20, 5))\nfor ax, metric in zip(axes, [\"RMSE\", \"MAE\", \"R2\", \"MAPE_%\"]):\n    order = results_df.sort_values(metric, ascending=(metric != \"R2\")).index\n    sns.barplot(x=results_df.loc[order, metric], y=order, palette=\"viridis\", ax=ax)\n    ax.set_title(metric)\n    ax.set_ylabel(\"\")\nplt.tight_layout()\nplt.show()\n"
+  },
+  {
+    "cell_index": 73,
+    "cell_id": "099a1c0d",
+    "source": "best_model_name = results_df.index[0]\npreds_all = {\n    \"LinearRegression\": y_pred_lr, \"Ridge\": y_pred_ridge, \"Lasso\": y_pred_lasso,\n    \"ElasticNet\": y_pred_elastic, \"MLP\": y_pred_mlp, \"MLP (tuned)\": y_pred_mlp_tuned,\n    \"KNN\": y_pred_knn, \"KNN (tuned)\": y_pred_knn_tuned,\n    \"RandomForest\": y_pred_rf, \"RandomForest (tuned)\": y_pred_rf_tuned,\n    \"XGBoost\": y_pred_xgb, \"XGBoost (tuned)\": y_pred_xgb_tuned,\n    \"CatBoost\": y_pred_cat, \"CatBoost (tuned)\": y_pred_cat_tuned,\n    \"LightGBM\": y_pred_lgbm, \"LightGBM (tuned)\": y_pred_lgbm_tuned,\n}\nbest_pred = preds_all[best_model_name]\n\nfig, ax = plt.subplots(figsize=(14, 5))\nax.plot(dates_test.values, y_test.values, label=\"actual\", linewidth=1.2)\nax.plot(dates_test.values, best_pred, label=f\"predicted ({best_model_name})\", linewidth=1.2, alpha=0.8)\nax.set_title(f\"Test-period daily consumption: actual vs. predicted ({best_model_name})\")\nax.set_ylabel(\"GWh\")\nax.legend()\nplt.tight_layout()\nplt.show()\n"
+  }
+]

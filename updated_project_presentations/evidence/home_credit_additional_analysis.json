@@ -1,0 +1,87 @@
+{
+  "winner": "XGBoost",
+  "runner_up": "LightGBM (tuned)",
+  "n_test": 61503,
+  "resampling": "paired stratified row bootstrap",
+  "n_resamples": 1000,
+  "comparisons": [
+    {
+      "comparison": "XGBoost versus LightGBM (tuned)",
+      "other": "LightGBM (tuned)",
+      "advantage": 0.0017492873546856025,
+      "ci_low": 0.00029312994563071847,
+      "ci_high": 0.0032169645226443025
+    },
+    {
+      "comparison": "XGBoost versus Reference logistic",
+      "other": "Reference logistic",
+      "advantage": 0.012006499420739059,
+      "ci_low": 0.009128066581746605,
+      "ci_high": 0.014983527997835028
+    }
+  ],
+  "interval_scope": "Conditional on fitted models and this test population. Training and model selection are not repeated.",
+  "average_precision": 0.24644110534670755,
+  "prevalence": 0.08072776937710356,
+  "brier_score": 0.0677117095620488,
+  "review_capacity": [
+    {
+      "review_share": 0.010015771588377803,
+      "n_reviewed": 616,
+      "positives": 301,
+      "precision": 0.48863636363636365,
+      "recall": 0.060624370594159115,
+      "lift": 6.0528906893710515
+    },
+    {
+      "review_share": 0.0500138204640424,
+      "n_reviewed": 3076,
+      "positives": 1043,
+      "precision": 0.33907672301690506,
+      "recall": 0.21007049345417925,
+      "lift": 4.200248881310919
+    },
+    {
+      "review_share": 0.10001138155862316,
+      "n_reviewed": 6151,
+      "positives": 1676,
+      "precision": 0.2724760201593237,
+      "recall": 0.33756294058408864,
+      "lift": 3.375245250324045
+    },
+    {
+      "review_share": 0.20000650374778467,
+      "n_reviewed": 12301,
+      "positives": 2600,
+      "precision": 0.2113649296805138,
+      "recall": 0.5236656596173213,
+      "lift": 2.6182431561209745
+    }
+  ],
+  "calibration_deciles": {
+    "predicted": [
+      0.012818564176165025,
+      0.02162850439366771,
+      0.02925198952114679,
+      0.0375687944071322,
+      0.04753857245025277,
+      0.059992231749664476,
+      0.07710752762430083,
+      0.1018894750085788,
+      0.14486096984850683,
+      0.2712430383927104
+    ],
+    "observed": [
+      0.013006015282067957,
+      0.0208130081300813,
+      0.026829268292682926,
+      0.03447154471544715,
+      0.04682165501544464,
+      0.060650406504065044,
+      0.08130081300813008,
+      0.10065040650406504,
+      0.15024390243902438,
+      0.2724760201593237
+    ]
+  }
+}
